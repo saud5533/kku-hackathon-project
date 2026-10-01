@@ -53,6 +53,26 @@ window.ABHA_VISITOR_GUIDE_DATA = {
       id: "highland-studio", category: "culture", location: { en: "Abha", ar: "أبها" }, title: { en: "Highland Studio", ar: "استوديو المرتفعات" },
       description: { en: "A fictional creative room for seeing colour, pattern, and highland-inspired stories together.", ar: "مساحة إبداعية خيالية تجتمع فيها الألوان والنقوش وحكايات المرتفعات." }, tags: { en: ["Design", "Indoors"], ar: ["تصميم", "في الداخل"] }, duration: 45, mapQuery: "Highland Studio, Abha, Saudi Arabia", gradient: "rose",
       image: { src: "assets/destinations/highland-studio.svg", width: 800, height: 500, alt: { en: "Original illustration of a colourful highland art studio", ar: "رسم أصلي لاستوديو فني ملون في المرتفعات" } }
+    },
+    {
+      id: "hayz-coffee", category: "food", location: { en: "Abha", ar: "أبها" }, title: { en: "Hayz Coffee", ar: "كوفي حيز" },
+      description: { en: "A casual coffee stop for a short pause between highland plans.", ar: "محطة قهوة هادئة لتوقف قصير بين خطط المرتفعات." }, tags: { en: ["Coffee break", "Casual stop"], ar: ["استراحة قهوة", "توقف هادئ"] }, duration: 40, mapQuery: "كوفي حيز أبها", gradient: "honey",
+      image: { src: "assets/destinations/hayz-coffee.svg", width: 800, height: 500, alt: { en: "Original illustration of a warm coffee cup and pastry on a café table", ar: "رسم أصلي لفنجان قهوة دافئ ومعجنات على طاولة مقهى" } }
+    },
+    {
+      id: "nair-coffee", category: "food", location: { en: "Abha", ar: "أبها" }, title: { en: "Nair Coffee", ar: "كوفي نير" },
+      description: { en: "A simple café stop for coffee and an unhurried moment in the day.", ar: "محطة مقهى بسيطة للقهوة ولحظة هادئة خلال اليوم." }, tags: { en: ["Coffee break", "Slow moment"], ar: ["استراحة قهوة", "لحظة هادئة"] }, duration: 40, mapQuery: "كوفي نير أبها", gradient: "clay",
+      image: { src: "assets/destinations/nair-coffee.svg", width: 800, height: 500, alt: { en: "Original illustration of a coffee cup beside a sunlit café window", ar: "رسم أصلي لفنجان قهوة بجانب نافذة مقهى مضيئة" } }
+    },
+    {
+      id: "row-coffee", category: "food", location: { en: "Abha", ar: "أبها" }, title: { en: "Row Coffee", ar: "رو كوفي" },
+      description: { en: "A relaxed coffee stop to add a gentle pause to a day around Abha.", ar: "محطة قهوة مريحة لإضافة استراحة لطيفة إلى يوم في أبها." }, tags: { en: ["Coffee break", "Relaxed"], ar: ["استراحة قهوة", "استرخاء"] }, duration: 45, mapQuery: "Row Coffee Abha", gradient: "sage",
+      image: { src: "assets/destinations/row-coffee.svg", width: 800, height: 500, alt: { en: "Original illustration of iced coffee and a small notebook on a café table", ar: "رسم أصلي لقهوة باردة ودفتر صغير على طاولة مقهى" } }
+    },
+    {
+      id: "medhal-coffee", category: "food", location: { en: "Abha", ar: "أبها" }, title: { en: "Medhal Coffee", ar: "كوفي مدهال" },
+      description: { en: "A neutral coffee stop for a quick drink and a quiet reset.", ar: "محطة قهوة هادئة لمشروب سريع واستراحة قصيرة." }, tags: { en: ["Quick pause", "Coffee"], ar: ["استراحة سريعة", "قهوة"] }, duration: 35, mapQuery: "كوفي مدهال أبها", gradient: "mist",
+      image: { src: "assets/destinations/medhal-coffee.svg", width: 800, height: 500, alt: { en: "Original illustration of a coffee pot and cup on a patterned café table", ar: "رسم أصلي لدلة وفنجان قهوة على طاولة مقهى مزخرفة" } }
     }
   ],
   examplePlan: ["cloudline-park", "juniper-table", "al-namas-overlook"],
