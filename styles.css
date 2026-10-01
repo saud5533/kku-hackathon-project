@@ -1,21 +1,28 @@
 :root {
-  --bg: #eae1d2;
-  --surface: #fff9f0;
-  --surface-soft: #f1e7d6;
-  --text: #1e342b;
-  --muted: #455b55;
-  --line: #cfc2ac;
-  --forest: #28533e;
-  --forest-dark: #193d2d;
-  --mist: #667f86;
-  --primary: #a34b22;
-  --primary-strong: #823816;
-  --on-primary: #fff9f0;
+  --bg: #ede3d3;
+  --surface: #f8f3ea;
+  --surface-soft: #e3d4bf;
+  --text: #173b2b;
+  --text-muted: #5f6f6a;
+  --muted: var(--text-muted);
+  --primary: #c96a2b;
+  --primary-hover: #a9501d;
+  --primary-strong: var(--primary-hover);
+  --secondary: #587b7f;
+  --mist: var(--secondary);
+  --accent-green: #315c45;
+  --forest: var(--accent-green);
+  --forest-dark: #214733;
+  --border: #cdbda8;
+  --line: var(--border);
+  --cloud: #f5f5f0;
+  --on-primary: #ffffff;
   --honey: #d58b48;
   --clay: #b55b38;
   --focus: #0b63a6;
-  --shadow: 0 18px 42px rgba(69, 57, 40, .14);
-  --shadow-soft: 0 8px 24px rgba(69, 57, 40, .10);
+  --shadow-color: rgba(56, 45, 31, .16);
+  --shadow: 0 18px 42px var(--shadow-color);
+  --shadow-soft: 0 8px 24px color-mix(in srgb, var(--shadow-color) 70%, transparent);
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 12px;
@@ -24,23 +31,30 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #1a211e;
-  --surface: #252d29;
-  --surface-soft: #303b35;
-  --text: #f8f1e5;
-  --muted: #cbd2cb;
-  --line: #4b5a53;
-  --forest: #9ac09f;
-  --forest-dark: #cce0c8;
-  --mist: #acc8cc;
-  --primary: #f2a16a;
-  --primary-strong: #ffc39d;
+  --bg: #172a27;
+  --surface: #213833;
+  --surface-soft: #2c4740;
+  --text: #f7f0e5;
+  --text-muted: #c2ccc5;
+  --muted: var(--text-muted);
+  --primary: #e68a45;
+  --primary-hover: #f0a15f;
+  --primary-strong: var(--primary-hover);
+  --secondary: #91b4b8;
+  --mist: var(--secondary);
+  --accent-green: #a7c49b;
+  --forest: var(--accent-green);
+  --forest-dark: #d2e0c9;
+  --border: #46625a;
+  --line: var(--border);
+  --cloud: #dce4e0;
   --on-primary: #26150c;
-  --honey: #f1bd83;
-  --clay: #f2a16a;
+  --honey: #f0a15f;
+  --clay: #e68a45;
   --focus: #a5ddff;
-  --shadow: 0 18px 42px rgba(0, 0, 0, .28);
-  --shadow-soft: 0 8px 24px rgba(0, 0, 0, .22);
+  --shadow-color: rgba(0, 0, 0, .3);
+  --shadow: 0 18px 42px var(--shadow-color);
+  --shadow-soft: 0 8px 24px color-mix(in srgb, var(--shadow-color) 74%, transparent);
   color-scheme: dark;
 }
 
