@@ -67,7 +67,9 @@
   };
 
   const text = (key) => data.copy[state.language][key] || key;
+  const englishNamedCafes = new Set(["hayz-coffee", "nair-coffee", "row-coffee", "medhal-coffee"]);
   const getDestination = (id) => data.destinations.find((destination) => destination.id === id);
+  const getDisplayTitle = (destination) => englishNamedCafes.has(destination.id) ? destination.title.en : destination.title[state.language];
   const mapUrl = (query) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
   const localPath = (path) => typeof path === "string" && !/^(?:https?:|\/|[A-Za-z]:|\/\/)/.test(path);
   const safeText = (value) => String(value || "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", "\"": "&quot;" }[character]));
@@ -191,6 +193,7 @@
     elements.placeGrid.innerHTML = visiblePlaces.map((destination) => {
       const isFavorite = state.favorites.includes(destination.id);
       const inPlan = state.plan.includes(destination.id);
+      const title = getDisplayTitle(destination);
       const tags = destination.tags[state.language].map((tag) => `<span>${tag}</span>`).join("");
       return `
         <article class="place-card">
@@ -205,13 +208,13 @@
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 20-1.6-1.45C4.7 13.4 1 10.04 1 6.9 1 4.34 3 2.35 5.55 2.35c1.45 0 2.84.68 3.75 1.76a3.57 3.57 0 0 1 5.4 0 4.92 4.92 0 0 1 3.75-1.76C21 2.35 23 4.34 23 6.9c0 3.14-3.7 6.5-9.4 11.66L12 20Z"/></svg>
               </button>
             </div>
-            <h3>${destination.title[state.language]}</h3>
+            <h3>${title}</h3>
             <p class="place-description">${destination.description[state.language]}</p>
             <div class="tag-list">${tags}</div>
             <div class="place-meta"><span>${destination.duration} ${text("duration")}</span><span>${inPlan ? text("inPlan") : ""}</span></div>
             <div class="card-actions">
               <button class="card-action plan-action ${inPlan ? "is-selected" : ""}" type="button" data-action="plan" data-id="${destination.id}">${inPlan ? text("removeFromPlan") : text("addToPlan")}</button>
-              <a class="card-action maps-action" href="${mapUrl(destination.mapQuery)}" target="_blank" rel="noopener noreferrer" aria-label="${text("openMaps")}: ${destination.title[state.language]}">${text("openMaps")}</a>
+              <a class="card-action maps-action" href="${mapUrl(destination.mapQuery)}" target="_blank" rel="noopener noreferrer" aria-label="${text("openMaps")}: ${title}">${text("openMaps")}</a>
             </div>
           </div>
         </article>
@@ -238,23 +241,26 @@
     elements.tripPlanner.innerHTML = `
       <div class="plan-summary"><strong>${pluralStops(planDestinations.length)}</strong><span>${totalMinutes} ${text("planMinutes")}</span></div>
       <ol class="plan-list">
-        ${planDestinations.map((destination, index) => `
-          <li class="plan-stop">
-            <span class="stop-number" aria-hidden="true">${index + 1}</span>
-            <div class="stop-copy"><strong>${destination.title[state.language]}</strong><span>${destination.duration} ${text("duration")} · ${destination.location[state.language]}</span></div>
-            <div class="stop-actions">
-              <button type="button" data-action="move" data-id="${destination.id}" data-direction="up" aria-label="${text("moveUp")}: ${destination.title[state.language]}" ${index === 0 ? "disabled" : ""}>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 15 7-7 7 7"/></svg>
-              </button>
-              <button type="button" data-action="move" data-id="${destination.id}" data-direction="down" aria-label="${text("moveDown")}: ${destination.title[state.language]}" ${index === planDestinations.length - 1 ? "disabled" : ""}>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 9 7 7 7-7"/></svg>
-              </button>
-              <button type="button" data-action="remove-plan" data-id="${destination.id}" aria-label="${text("remove")}: ${destination.title[state.language]}">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
-              </button>
-            </div>
-          </li>
-        `).join("")}
+        ${planDestinations.map((destination, index) => {
+          const title = getDisplayTitle(destination);
+          return `
+            <li class="plan-stop">
+              <span class="stop-number" aria-hidden="true">${index + 1}</span>
+              <div class="stop-copy"><strong>${title}</strong><span>${destination.duration} ${text("duration")} · ${destination.location[state.language]}</span></div>
+              <div class="stop-actions">
+                <button type="button" data-action="move" data-id="${destination.id}" data-direction="up" aria-label="${text("moveUp")}: ${title}" ${index === 0 ? "disabled" : ""}>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 15 7-7 7 7"/></svg>
+                </button>
+                <button type="button" data-action="move" data-id="${destination.id}" data-direction="down" aria-label="${text("moveDown")}: ${title}" ${index === planDestinations.length - 1 ? "disabled" : ""}>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 9 7 7 7-7"/></svg>
+                </button>
+                <button type="button" data-action="remove-plan" data-id="${destination.id}" aria-label="${text("remove")}: ${title}">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+                </button>
+              </div>
+            </li>
+          `;
+        }).join("")}
       </ol>
     `;
   }
@@ -277,7 +283,7 @@
     const exists = state.favorites.includes(id);
     state.favorites = exists ? state.favorites.filter((favoriteId) => favoriteId !== id) : [...state.favorites, id];
     saveState("favorites", state.favorites);
-    setStatus(interpolate(text(exists ? "statusUnsaved" : "statusSaved"), { place: destination.title[state.language] }));
+    setStatus(interpolate(text(exists ? "statusUnsaved" : "statusSaved"), { place: getDisplayTitle(destination) }));
     render();
   }
 
@@ -287,7 +293,7 @@
     const exists = state.plan.includes(id);
     state.plan = exists ? state.plan.filter((planId) => planId !== id) : [...state.plan, id];
     saveState("plan", state.plan);
-    setStatus(interpolate(text(exists ? "statusRemoved" : "statusAdded"), { place: destination.title[state.language] }));
+    setStatus(interpolate(text(exists ? "statusRemoved" : "statusAdded"), { place: getDisplayTitle(destination) }));
     render();
   }
 
