@@ -1,5 +1,5 @@
 Name: Saud Abdulaziz Al-Qahtani
-Email (the one I registered with): sawowd505@gmail.com
+Email (the one I registered with): [private]
 Cohort (girls or boys): boys
 Project option: Abha Visitor Guide
 Problem: Visitors can find it difficult to turn a long list of possible highland stops into a simple, personal day plan while preparing for changing conditions.
