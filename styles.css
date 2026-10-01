@@ -95,11 +95,13 @@ svg { display: block; fill: none; stroke: currentColor; stroke-linecap: round; s
 .icon-button svg { width: 19px; }
 .language-button { padding: 0 13px; font-size: .88rem; font-weight: 700; }
 
-.hero { position: relative; overflow: hidden; padding: clamp(56px, 8vw, 104px) 0 clamp(58px, 8vw, 96px); background: radial-gradient(circle at 10% 4%, color-mix(in srgb, var(--primary) 22%, transparent), transparent 31%), linear-gradient(125deg, var(--surface-soft), var(--bg)); }
+.hero { position: relative; overflow: hidden; padding: clamp(56px, 8vw, 104px) 0 clamp(58px, 8vw, 96px); background: linear-gradient(rgba(23, 59, 43, .48), rgba(23, 59, 43, .72)), url("assets/abha-mountains-fog.svg") center / cover no-repeat; color: #fff; }
 .hero::after { position: absolute; inset: auto -20% -38% 18%; height: 260px; border-radius: 50%; background: color-mix(in srgb, var(--forest) 13%, transparent); content: ""; filter: blur(30px); }
 .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, .93fr) minmax(330px, .78fr); align-items: center; gap: clamp(36px, 7vw, 96px); }
 .hero-copy { max-width: 650px; padding: clamp(18px, 3vw, 30px); border: 1px solid color-mix(in srgb, var(--surface) 68%, transparent); border-radius: var(--radius-lg); background: color-mix(in srgb, var(--surface) 78%, transparent); box-shadow: var(--shadow-soft); backdrop-filter: blur(10px); }
 .eyebrow { margin: 0 0 8px; color: var(--forest); font-size: .76rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.hero .eyebrow { color: var(--cloud); }
+.hero .hero-description, .hero .local-note { color: color-mix(in srgb, var(--cloud) 88%, transparent); }
 h1, h2, h3, p { overflow-wrap: anywhere; }
 h1, h2, h3 { margin-top: 0; font-family: Georgia, "Times New Roman", serif; line-height: 1.08; letter-spacing: -.035em; }
 h1 { max-width: 680px; margin-bottom: 18px; font-size: clamp(3rem, 6.2vw, 5.35rem); }
