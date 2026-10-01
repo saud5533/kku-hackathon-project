@@ -67,9 +67,9 @@
   };
 
   const text = (key) => data.copy[state.language][key] || key;
-  const englishNamedCafes = new Set(["hayz-coffee", "nair-coffee", "row-coffee", "medhal-coffee"]);
+  const englishNamedVenues = new Set(["hayz-coffee", "nair-coffee", "row-coffee", "medhal-coffee", "prime-cut", "rwd-basil"]);
   const getDestination = (id) => data.destinations.find((destination) => destination.id === id);
-  const getDisplayTitle = (destination) => englishNamedCafes.has(destination.id) ? destination.title.en : destination.title[state.language];
+  const getDisplayTitle = (destination) => englishNamedVenues.has(destination.id) ? destination.title.en : destination.title[state.language];
   const mapUrl = (query) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
   const localPath = (path) => typeof path === "string" && !/^(?:https?:|\/|[A-Za-z]:|\/\/)/.test(path);
   const safeText = (value) => String(value || "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", "\"": "&quot;" }[character]));
@@ -194,6 +194,7 @@
       const isFavorite = state.favorites.includes(destination.id);
       const inPlan = state.plan.includes(destination.id);
       const title = getDisplayTitle(destination);
+      const visitorTip = destination.visitorTip?.[state.language];
       const tags = destination.tags[state.language].map((tag) => `<span>${tag}</span>`).join("");
       return `
         <article class="place-card">
@@ -210,6 +211,7 @@
             </div>
             <h3>${title}</h3>
             <p class="place-description">${destination.description[state.language]}</p>
+            ${visitorTip ? `<p class="visitor-tip"><strong>${text("visitorTip")}:</strong> ${safeText(visitorTip)}</p>` : ""}
             <div class="tag-list">${tags}</div>
             <div class="place-meta"><span>${destination.duration} ${text("duration")}</span><span>${inPlan ? text("inPlan") : ""}</span></div>
             <div class="card-actions">
