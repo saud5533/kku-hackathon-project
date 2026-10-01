@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A bilingual, offline trip planning guide for Abha and Al Namas.">
+  <title>Abha Visitor Guide</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#guide">Skip to destinations</a>
+
+  <header class="site-header">
+    <div class="page-shell header-content">
+      <a class="brand" href="#top" aria-label="Abha Visitor Guide home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false"><path d="M4 38c8-2 12-10 17-20 4 9 10 15 23 20H4Z"/><path d="M11 38c5-4 9-9 13-17 4 8 8 13 14 17H11Z"/></svg>
+        </span>
+        <span>
+          <strong>Abha</strong>
+          <small>Visitor guide</small>
+        </span>
+      </a>
+      <div class="utility-controls" aria-label="Guide preferences">
+        <button class="icon-button" type="button" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark mode" title="Switch theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.1 15.1A8.3 8.3 0 0 1 8.9 3.9 8.5 8.5 0 1 0 20.1 15.1Z"/></svg>
+        </button>
+        <button class="language-button" type="button" id="language-toggle" aria-label="Switch to Arabic">العربية</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="page-shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="heroEyebrow">A quieter way to explore</p>
+          <h1 data-i18n="heroTitle">Find your rhythm in the highlands.</h1>
+          <p class="hero-description" data-i18n="heroDescription">Choose a few special stops across Abha and Al Namas, then keep your day beautifully simple.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#guide" data-i18n="explorePlaces">Explore places</a>
+            <button class="button button-quiet" type="button" id="load-example" data-i18n="loadExample">Load example plan</button>
+          </div>
+          <p class="local-note" data-i18n="offlineNote">Works offline · Your choices stay on this device</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="sun"></div>
+          <div class="cloud cloud-one"></div>
+          <div class="cloud cloud-two"></div>
+          <div class="mountain mountain-back"></div>
+          <div class="mountain mountain-front"></div>
+          <div class="hill"></div>
+          <div class="route-line"></div>
+          <div class="route-pin pin-one"></div>
+          <div class="route-pin pin-two"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell trip-section" aria-labelledby="trip-title">
+      <div class="section-heading heading-row">
+        <div>
+          <p class="eyebrow" data-i18n="yourDayEyebrow">Your little itinerary</p>
+          <h2 id="trip-title" data-i18n="tripTitle">Today’s trip plan</h2>
+        </div>
+        <button class="text-button" type="button" id="clear-plan" data-i18n="clearPlan">Clear plan</button>
+      </div>
+      <div class="trip-layout">
+        <div class="trip-planner" id="trip-planner" aria-live="polite"></div>
+        <aside class="weather-card" aria-labelledby="weather-title">
+          <div class="weather-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" focusable="false"><circle cx="24" cy="24" r="8"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6M10 10l4 4M34 34l4 4M38 10l-4 4M14 34l-4 4"/></svg>
+          </div>
+          <div>
+            <p class="eyebrow" data-i18n="packingEyebrow">Pack thoughtfully</p>
+            <h2 id="weather-title" data-i18n="weatherTitle">Clothing advice</h2>
+          </div>
+          <label class="visually-hidden" for="weather-select" data-i18n="weatherLabel">Choose a planning condition</label>
+          <select id="weather-select"></select>
+          <p class="weather-advice" id="weather-advice"></p>
+          <p class="weather-disclaimer" data-i18n="weatherDisclaimer">Planning guidance only — check current local conditions before leaving.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="guide-section" id="guide" aria-labelledby="guide-title">
+      <div class="page-shell">
+        <div class="section-heading catalog-heading">
+          <div>
+            <p class="eyebrow" data-i18n="guideEyebrow">Make room for detours</p>
+            <h2 id="guide-title" data-i18n="guideTitle">Places worth keeping close</h2>
+          </div>
+          <button class="favorites-toggle" type="button" id="favorites-toggle" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 20-1.6-1.45C4.7 13.4 1 10.04 1 6.9 1 4.34 3 2.35 5.55 2.35c1.45 0 2.84.68 3.75 1.76a3.57 3.57 0 0 1 5.4 0 4.92 4.92 0 0 1 3.75-1.76C21 2.35 23 4.34 23 6.9c0 3.14-3.7 6.5-9.4 11.66L12 20Z"/></svg>
+            <span data-i18n="showFavorites">Favorites</span>
+            <span class="count-pill" id="favorite-count">0</span>
+          </button>
+        </div>
+        <div class="filter-bar" id="filter-bar" aria-label="Place categories"></div>
+        <p class="results-summary" id="results-summary" aria-live="polite"></p>
+        <div class="place-grid" id="place-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-content">
+      <p data-i18n="footerGuide">A made-up sample guide for thoughtful visitors.</p>
+      <p data-i18n="footerPrivacy">Favorites and plans are saved only in your browser.</p>
+    </div>
+  </footer>
+
+  <div class="status-message" id="status-message" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script src="sample-data/data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
