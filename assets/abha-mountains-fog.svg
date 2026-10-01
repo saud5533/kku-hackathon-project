@@ -1,16 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Original illustration of mist drifting over green Abha mountain ridges" preserveAspectRatio="xMidYMid slice">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Original illustration of soft fog drifting over rocky green Abha mountain ridges" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b5d9dd"/><stop offset=".55" stop-color="#dce9dd"/><stop offset="1" stop-color="#759c7e"/></linearGradient>
-    <linearGradient id="far" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#709d8e"/><stop offset="1" stop-color="#396959"/></linearGradient>
-    <linearGradient id="near" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3d755b"/><stop offset="1" stop-color="#163f31"/></linearGradient>
-    <filter id="blur"><feGaussianBlur stdDeviation="20"/></filter>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#78949a"/>
+      <stop offset=".5" stop-color="#b7c9c7"/>
+      <stop offset="1" stop-color="#e8d9bf"/>
+    </linearGradient>
+    <linearGradient id="far-ridge" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#789172"/>
+      <stop offset="1" stop-color="#466a50"/>
+    </linearGradient>
+    <linearGradient id="rock-ridge" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8b7557"/>
+      <stop offset=".46" stop-color="#4b7054"/>
+      <stop offset="1" stop-color="#1e4938"/>
+    </linearGradient>
+    <linearGradient id="near-ridge" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#426c50"/>
+      <stop offset="1" stop-color="#163b2d"/>
+    </linearGradient>
+    <filter id="fog" x="-15%" y="-30%" width="130%" height="160%">
+      <feGaussianBlur stdDeviation="23"/>
+    </filter>
   </defs>
   <rect width="1200" height="900" fill="url(#sky)"/>
-  <circle cx="930" cy="170" r="80" fill="#fff1c5" opacity=".76"/>
-  <path d="M0 560 170 390l105 102L470 245l170 216 155-171 144 156 128-109 133 173v390H0Z" fill="url(#far)" opacity=".77"/>
-  <path d="M0 660 180 457l123 112 178-194 143 152 134-129 145 170 114-95 183 197v230H0Z" fill="url(#near)"/>
-  <path d="M-80 554c197-88 339 70 552 11 200-55 294 92 519 7 155-58 285 38 365 22v145c-177 44-292-77-453-17-234 87-317-55-509 4-201 61-326-105-474-13Z" fill="#edf4ed" opacity=".72" filter="url(#blur)"/>
-  <path d="M0 700c160-46 264 36 418-9 143-42 272 47 414 0 145-49 243 20 368-16v134H0Z" fill="#f7faf5" opacity=".53" filter="url(#blur)"/>
-  <path d="M96 786c117-56 218-44 345-12 137 35 255-18 349-9 124 12 200 52 327-4" fill="none" stroke="#d5c37a" stroke-width="9" stroke-linecap="round" opacity=".86"/>
-  <g fill="#183f31"><path d="M154 723l20-71 19 71h-12l14 47h-42l13-47Z"/><path d="M233 757l17-60 17 60h-10l12 40h-37l11-40Z"/><path d="M1012 722l20-71 20 71h-13l15 47h-43l13-47Z"/><path d="M1082 760l17-60 17 60h-10l12 40h-37l11-40Z"/></g>
+  <circle cx="915" cy="174" r="92" fill="#dfa06a" opacity=".88"/>
+  <circle cx="915" cy="174" r="126" fill="#f1c58f" opacity=".14" filter="url(#fog)"/>
+  <path d="M0 580 153 438l112 81 170-224 152 179 131-149 157 146 118-103 207 184v348H0Z" fill="url(#far-ridge)" opacity=".8"/>
+  <path d="M0 681 138 535l113 72 153-194 151 130 148-180 145 153 127-80 185 202v262H0Z" fill="url(#rock-ridge)"/>
+  <path d="M0 760 171 584l117 84 161-148 145 147 140-104 176 138 124-85 166 148v136H0Z" fill="url(#near-ridge)"/>
+  <path d="M-80 557c176-77 330 61 527 16 205-47 310 74 517 3 151-52 281 33 360 15v139c-170 41-283-70-441-20-223 72-319-47-502 7-196 58-326-94-461-13Z" fill="#e7eee6" opacity=".76" filter="url(#fog)"/>
+  <path d="M-25 667c141-46 265 33 415-5 143-36 269 39 410 3 144-38 237 21 425-8v122c-185 42-302-38-434 4-148 47-267-42-411-5-154 40-282-61-405-11Z" fill="#f7f4e9" opacity=".62" filter="url(#fog)"/>
+  <path d="M86 804c118-52 224-41 350-8 136 35 244-16 340-9 120 9 207 51 341-6" fill="none" stroke="#ce7545" stroke-width="9" stroke-linecap="round" opacity=".84"/>
+  <g fill="#163b2d">
+    <path d="M142 731l20-71 19 71h-12l14 47h-42l13-47Z"/>
+    <path d="M222 772l17-60 17 60h-10l12 40h-37l11-40Z"/>
+    <path d="M1008 734l20-71 20 71h-13l15 47h-43l13-47Z"/>
+    <path d="M1080 773l17-60 17 60h-10l12 40h-37l11-40Z"/>
+  </g>
 </svg>

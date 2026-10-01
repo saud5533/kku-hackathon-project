@@ -11,6 +11,7 @@ A bilingual, one-screen visitor guide for planning a gentle day across **Abha** 
 - Choose a planning weather condition for practical clothing advice.
 - Switch between English/Arabic (including RTL layout) and light/dark mode.
 - Explore original local mountain, place, café, culture, and activity illustrations with bilingual alt text.
+- Experience a highland visual palette: rocky beige surfaces, mountain-sunset orange primary actions, deep natural greens, misty blue-gray contrast, and a local foggy mountain hero.
 - Use the responsive **Discover Abha** video poster and replace it later with a local MP4 if wanted.
 
 ## Who it is for
@@ -42,7 +43,7 @@ Favorites, trip plans, language, theme, and weather choice are saved only in the
 
 ## Local media and replacement
 
-All checked-in visuals in `assets/` are original local SVG placeholder illustrations created for this project. They are not remote stock photos, and the default **Discover Abha** experience does not load a video, YouTube embed, or any remote media.
+All checked-in visuals in `assets/` are original local SVG placeholder illustrations created for this project, including the refreshed rocky mountain, cloud, and fog hero. They are not remote stock photos, and the default **Discover Abha** experience does not load a video, YouTube embed, or any remote media.
 
 To replace an illustration, add an appropriately licensed file inside `assets/`, then update the matching `src`, `width`, `height`, and English/Arabic `alt` fields in `sample-data/data.js`. Keep paths relative and local.
 
