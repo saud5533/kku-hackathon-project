@@ -31,28 +31,28 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #172a27;
-  --surface: #213833;
-  --surface-soft: #2c4740;
+  --bg: #2b1d16;
+  --surface: #3a281f;
+  --surface-soft: #4b3528;
   --text: #f7f0e5;
-  --text-muted: #c2ccc5;
+  --text-muted: #d2c3b2;
   --muted: var(--text-muted);
-  --primary: #e68a45;
-  --primary-hover: #f0a15f;
-  --primary-strong: var(--primary-hover);
-  --secondary: #91b4b8;
+  --primary: #e08a4b;
+  --primary-hover: var(--primary);
+  --primary-strong: var(--primary);
+  --secondary: var(--text-muted);
   --mist: var(--secondary);
-  --accent-green: #a7c49b;
-  --forest: var(--accent-green);
-  --forest-dark: #d2e0c9;
-  --border: #46625a;
+  --accent-green: var(--primary);
+  --forest: var(--text);
+  --forest-dark: var(--bg);
+  --border: var(--text-muted);
   --line: var(--border);
-  --cloud: #dce4e0;
-  --on-primary: #26150c;
-  --honey: #f0a15f;
-  --clay: #e68a45;
-  --focus: #a5ddff;
-  --shadow-color: rgba(0, 0, 0, .3);
+  --cloud: var(--text);
+  --on-primary: var(--bg);
+  --honey: var(--primary);
+  --clay: var(--primary);
+  --focus: var(--text);
+  --shadow-color: color-mix(in srgb, var(--bg) 74%, transparent);
   --shadow: 0 18px 42px var(--shadow-color);
   --shadow-soft: 0 8px 24px color-mix(in srgb, var(--shadow-color) 74%, transparent);
   color-scheme: dark;
@@ -139,6 +139,14 @@ h3 { margin-bottom: 8px; font-size: 1.45rem; }
 :root[data-theme="dark"] .hero .hero-description, :root[data-theme="dark"] .hero .local-note { color: var(--muted); }
 :root[data-theme="dark"] .hero-media { border-color: var(--line); background: linear-gradient(157deg, color-mix(in srgb, var(--mist) 44%, var(--surface)), var(--surface-soft)); }
 :root[data-theme="dark"] .video-frame { background: linear-gradient(145deg, color-mix(in srgb, var(--mist) 34%, var(--surface)), var(--forest-dark)); }
+:root[data-theme="dark"] .hero-media::before { background: color-mix(in srgb, var(--primary) 58%, var(--text)); }
+:root[data-theme="dark"] .video-play { border-color: color-mix(in srgb, var(--text) 72%, transparent); background: color-mix(in srgb, var(--bg) 90%, transparent); color: var(--text); box-shadow: 0 9px 25px color-mix(in srgb, var(--bg) 72%, transparent); }
+:root[data-theme="dark"] .media-fallback .media-art-fallback, :root[data-theme="dark"] .place-scene { background: linear-gradient(145deg, color-mix(in srgb, var(--mist) 42%, var(--surface)), var(--forest-dark)); }
+:root[data-theme="dark"] .scene-lavender { background: linear-gradient(145deg, color-mix(in srgb, var(--mist) 42%, var(--surface)), var(--surface-soft)); }
+:root[data-theme="dark"] .scene-clay, :root[data-theme="dark"] .scene-honey { background: linear-gradient(145deg, color-mix(in srgb, var(--primary) 30%, var(--surface)), var(--primary)); }
+:root[data-theme="dark"] .scene-mist, :root[data-theme="dark"] .scene-rose { background: linear-gradient(145deg, color-mix(in srgb, var(--primary) 18%, var(--surface)), var(--surface-soft)); }
+:root[data-theme="dark"] .button-primary, :root[data-theme="dark"] .button-primary:hover { background: var(--primary); color: var(--on-primary); }
+:root[data-theme="dark"] .button-primary:focus-visible, :root[data-theme="dark"] .filter-chip.is-active:focus-visible, :root[data-theme="dark"] .plan-action:focus-visible { outline-color: var(--bg); }
 
 .trip-section { padding: clamp(56px, 7vw, 90px) 0; }
 .section-heading { margin-bottom: 25px; }.heading-row, .catalog-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; }.text-button { min-height: 44px; border: 0; border-bottom: 1px solid currentColor; padding: 4px 0; background: transparent; color: var(--forest); font-weight: 800; }
