@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Original illustrated Discover Abha video poster with misty mountains and a winding path" preserveAspectRatio="xMidYMid slice">
+  <defs><linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9ecbd0"/><stop offset=".6" stop-color="#dce9dc"/><stop offset="1" stop-color="#2b654f"/></linearGradient><filter id="f"><feGaussianBlur stdDeviation="27"/></filter></defs>
+  <rect width="1600" height="900" fill="url(#a)"/>
+  <circle cx="1215" cy="182" r="96" fill="#fff2ca" opacity=".9"/>
+  <path d="M0 635 278 340l148 137 251-260 196 227 178-168 188 167 147-124 214 263v318H0Z" fill="#5b8c76" opacity=".73"/>
+  <path d="M0 748 211 491l163 155 257-238 176 194 198-167 185 182 177-135 233 229v189H0Z" fill="#194f3d"/>
+  <path d="M-30 589c243-102 387 91 646 15 265-79 359 107 660 13 138-43 247 8 354-16v170c-190 48-295-38-430-3-298 77-406-101-638-34-228 65-348-86-592-8Z" fill="#f1f5ee" opacity=".7" filter="url(#f)"/>
+  <path d="M674 910c25-141 112-224 297-289 90-32 110-95 174-154" fill="none" stroke="#f4cc75" stroke-width="23" stroke-linecap="round"/>
+  <path d="M674 910c25-141 112-224 297-289 90-32 110-95 174-154" fill="none" stroke="#fff1bd" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+  <g fill="#143b2d"><path d="m169 748 25-91 25 91h-15l17 55h-55l18-55Z"/><path d="m271 786 20-73 20 73h-12l14 48h-45l14-48Z"/><path d="m1340 767 25-91 25 91h-15l17 55h-55l18-55Z"/><path d="m1452 805 20-73 20 73h-12l14 48h-45l14-48Z"/></g>
+</svg>

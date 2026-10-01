@@ -50,6 +50,9 @@
   const elements = {
     theme: document.getElementById("theme-toggle"),
     language: document.getElementById("language-toggle"),
+    heroImage: document.getElementById("hero-image"),
+    discoverPlayer: document.getElementById("discover-player"),
+    discoverNote: document.getElementById("discover-note"),
     loadExample: document.getElementById("load-example"),
     clearPlan: document.getElementById("clear-plan"),
     weather: document.getElementById("weather-select"),
@@ -66,6 +69,10 @@
   const text = (key) => data.copy[state.language][key] || key;
   const getDestination = (id) => data.destinations.find((destination) => destination.id === id);
   const mapUrl = (query) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+  const localPath = (path) => typeof path === "string" && !/^(?:https?:|\/|[A-Za-z]:|\/\/)/.test(path);
+  const safeText = (value) => String(value || "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", "\"": "&quot;" }[character]));
+  const showImageFallback = (event) => event.currentTarget.closest(".media-fallback")?.classList.add("has-image-error");
+  const safeEmbedUrl = (url) => typeof url === "string" && /^https:\/\/(?:www\.)?(?:youtube\.com|youtube-nocookie\.com)\/embed\//.test(url) ? url : "";
   const pluralStops = (count) => `${count} ${text("planStops")}`;
   const interpolate = (template, values) => Object.entries(values).reduce((result, [key, value]) => result.replace(`{${key}}`, value), template);
 
@@ -91,6 +98,51 @@
       node.textContent = text(node.dataset.i18n);
     });
     elements.clearPlan.disabled = state.plan.length === 0;
+  }
+
+  function renderMedia() {
+    const hero = data.media.hero;
+    elements.heroImage.src = hero.src;
+    elements.heroImage.alt = hero.alt[state.language];
+    elements.heroImage.width = hero.width;
+    elements.heroImage.height = hero.height;
+
+    const video = data.media.discoverVideo;
+    elements.discoverNote.textContent = video.provider === "placeholder" ? text("discoverPlaceholder") : "";
+    elements.discoverPlayer.innerHTML = `
+      <div class="video-frame media-fallback">
+        <img class="discover-poster" src="${safeText(video.posterSrc)}" alt="${safeText(video.posterAlt[state.language])}" width="${video.posterWidth}" height="${video.posterHeight}">
+        <div class="media-art-fallback" aria-hidden="true"></div>
+        <button class="video-play" type="button" data-action="play-video" aria-label="${safeText(text("discoverPlay"))}">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8 5 11 7-11 7Z"/></svg><span>${text("discoverPlay")}</span>
+        </button>
+      </div>
+    `;
+    const poster = elements.discoverPlayer.querySelector("img");
+    poster.addEventListener("error", showImageFallback, { once: true });
+  }
+
+  function playDiscoverVideo() {
+    const video = data.media.discoverVideo;
+    if (video.provider === "mp4" && localPath(video.localMp4Src)) {
+      const captions = video.captions?.[state.language];
+      elements.discoverPlayer.innerHTML = `
+        <div class="video-frame"><video controls playsinline preload="metadata" aria-label="${safeText(text("discoverVideoTitle"))}">
+          <source src="${safeText(video.localMp4Src)}" type="video/mp4">${captions && localPath(captions) ? `<track kind="captions" src="${safeText(captions)}" srclang="${state.language}" label="${state.language}" default>` : ""}
+        </video></div>`;
+      const player = elements.discoverPlayer.querySelector("video");
+      player.addEventListener("error", () => { renderMedia(); setStatus(text("discoverUnavailable")); }, { once: true });
+      player.play().catch(() => {});
+      return;
+    }
+
+    const embedUrl = video.provider === "youtube" ? safeEmbedUrl(video.youtubeEmbedUrl) : "";
+    if (embedUrl) {
+      elements.discoverPlayer.innerHTML = `<div class="video-frame"><iframe src="${safeText(embedUrl)}" title="${safeText(text("discoverVideoTitle"))}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+      return;
+    }
+
+    setStatus(text("discoverUnavailable"));
   }
 
   function renderWeather() {
@@ -142,8 +194,9 @@
       const tags = destination.tags[state.language].map((tag) => `<span>${tag}</span>`).join("");
       return `
         <article class="place-card">
-          <div class="place-scene scene-${destination.gradient}" aria-hidden="true">
-            <span class="scene-sun"></span><span class="scene-peak peak-one"></span><span class="scene-peak peak-two"></span><span class="scene-line"></span>
+          <div class="place-scene scene-${destination.gradient} media-fallback">
+            <img class="place-image" src="${safeText(destination.image.src)}" alt="${safeText(destination.image.alt[state.language])}" width="${destination.image.width}" height="${destination.image.height}" loading="lazy" decoding="async">
+            <div class="media-art-fallback" aria-hidden="true"></div>
           </div>
           <div class="place-card-body">
             <div class="place-card-topline">
@@ -164,6 +217,7 @@
         </article>
       `;
     }).join("");
+    elements.placeGrid.querySelectorAll(".place-image").forEach((image) => image.addEventListener("error", showImageFallback, { once: true }));
   }
 
   function renderPlanner() {
@@ -208,6 +262,7 @@
   function render() {
     applyDocumentPreferences();
     renderStaticCopy();
+    renderMedia();
     renderWeather();
     renderFilters();
     renderFavoritesToggle();
@@ -268,6 +323,10 @@
     state.weather = validWeather.has(event.target.value) ? event.target.value : "sunny";
     saveState("weather", state.weather);
     renderWeather();
+  });
+
+  elements.discoverPlayer.addEventListener("click", (event) => {
+    if (event.target.closest("[data-action=\"play-video\"]")) playDiscoverVideo();
   });
 
   elements.loadExample.addEventListener("click", loadExample);
