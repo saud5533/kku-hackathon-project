@@ -95,13 +95,13 @@ svg { display: block; fill: none; stroke: currentColor; stroke-linecap: round; s
 .icon-button svg { width: 19px; }
 .language-button { padding: 0 13px; font-size: .88rem; font-weight: 700; }
 
-.hero { position: relative; overflow: hidden; padding: clamp(56px, 8vw, 104px) 0 clamp(58px, 8vw, 96px); background: linear-gradient(rgba(23, 59, 43, .48), rgba(23, 59, 43, .72)), url("assets/abha-mountains-fog.svg") center / cover no-repeat; color: #fff; }
-.hero::after { position: absolute; inset: auto -20% -38% 18%; height: 260px; border-radius: 50%; background: color-mix(in srgb, var(--forest) 13%, transparent); content: ""; filter: blur(30px); }
+.hero { position: relative; overflow: hidden; padding: clamp(56px, 8vw, 104px) 0 clamp(58px, 8vw, 96px); background: linear-gradient(135deg, var(--bg), color-mix(in srgb, var(--surface) 72%, var(--bg))); color: var(--text); }
+.hero::after { position: absolute; inset: auto -20% -38% 18%; height: 260px; border-radius: 50%; background: color-mix(in srgb, var(--primary) 12%, transparent); content: ""; filter: blur(30px); }
 .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, .93fr) minmax(330px, .78fr); align-items: center; gap: clamp(36px, 7vw, 96px); }
-.hero-copy { max-width: 650px; padding: clamp(18px, 3vw, 30px); border: 1px solid color-mix(in srgb, var(--surface) 68%, transparent); border-radius: var(--radius-lg); background: color-mix(in srgb, var(--surface) 78%, transparent); box-shadow: var(--shadow-soft); backdrop-filter: blur(10px); }
+.hero-copy { max-width: 650px; padding: clamp(18px, 3vw, 30px); border: 2px solid var(--text); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-soft); }
 .eyebrow { margin: 0 0 8px; color: var(--forest); font-size: .76rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-.hero .eyebrow { color: var(--cloud); }
-.hero .hero-description, .hero .local-note { color: color-mix(in srgb, var(--cloud) 88%, transparent); }
+.hero .eyebrow { color: var(--primary-hover); }
+.hero .hero-description, .hero .local-note { color: var(--muted); }
 h1, h2, h3, p { overflow-wrap: anywhere; }
 h1, h2, h3 { margin-top: 0; font-family: Georgia, "Times New Roman", serif; line-height: 1.08; letter-spacing: -.035em; }
 h1 { max-width: 680px; margin-bottom: 18px; font-size: clamp(3rem, 6.2vw, 5.35rem); }
@@ -110,14 +110,14 @@ h3 { margin-bottom: 8px; font-size: 1.45rem; }
 .hero-description { max-width: 550px; margin: 0; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .button, .card-action { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; border: 1px solid transparent; border-radius: 12px; padding: 10px 17px; font-weight: 800; text-decoration: none; transition: background .18s ease, border-color .18s ease, color .18s ease, transform .18s ease; }
-.button-primary { background: var(--primary); color: var(--on-primary); box-shadow: 0 8px 16px color-mix(in srgb, var(--primary) 26%, transparent); }
-.button-primary:hover { background: var(--primary-strong); }
+.button-primary { background: var(--primary-hover); color: #fff; box-shadow: 0 8px 16px color-mix(in srgb, var(--primary) 26%, transparent); }
+.button-primary:hover { background: var(--primary); color: var(--text); }
 .button-quiet { border-color: var(--line); background: var(--surface); color: var(--text); }
 .local-note { margin: 17px 0 0; color: var(--muted); font-size: .87rem; }
 
-.hero-media { position: relative; min-height: 350px; overflow: hidden; border: 1px solid color-mix(in srgb, var(--line) 78%, transparent); border-radius: 45% 45% 30% 30% / 25% 25% 17% 17%; background: linear-gradient(157deg, var(--mist), var(--forest)); box-shadow: var(--shadow); }
-.hero-media::after { position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--mist) 12%, transparent), transparent 42%, color-mix(in srgb, var(--forest-dark) 38%, transparent)); content: ""; pointer-events: none; }
-.hero-media::before { position: absolute; z-index: 1; top: 9%; right: 11%; width: 18%; aspect-ratio: 1; border-radius: 50%; background: color-mix(in srgb, var(--primary) 45%, #ffe2aa); content: ""; filter: blur(1px); opacity: .78; }
+.hero-media { position: relative; min-height: 350px; overflow: hidden; border: 2px solid var(--text); border-radius: 45% 45% 30% 30% / 25% 25% 17% 17%; background: linear-gradient(157deg, color-mix(in srgb, var(--mist) 55%, var(--surface)), var(--surface-soft)); box-shadow: var(--shadow); }
+.hero-media::after { position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--cloud) 22%, transparent), transparent 45%, color-mix(in srgb, var(--primary) 14%, transparent)); content: ""; pointer-events: none; }
+.hero-media::before { position: absolute; z-index: 1; top: 9%; right: 11%; width: 18%; aspect-ratio: 1; border-radius: 50%; background: color-mix(in srgb, var(--primary) 58%, #ffe2aa); content: ""; filter: blur(1px); opacity: .78; }
 .hero-media img { display: block; width: 100%; height: 100%; min-height: 350px; object-fit: cover; }
 
 .discover-section { padding: 0 0 clamp(56px, 7vw, 90px); }
@@ -132,6 +132,12 @@ h3 { margin-bottom: 8px; font-size: 1.45rem; }
 .media-fallback .media-art-fallback { display: none; position: absolute; inset: 0; background: linear-gradient(145deg, color-mix(in srgb, var(--mist) 42%, var(--surface)), var(--forest)); }
 .media-fallback.has-image-error .media-art-fallback { display: block; }
 .media-fallback.has-image-error img { display: none; }
+:root[data-theme="dark"] .hero { background: linear-gradient(135deg, var(--bg), var(--surface-soft)); color: var(--text); }
+:root[data-theme="dark"] .hero::after { background: color-mix(in srgb, var(--primary) 16%, transparent); }
+:root[data-theme="dark"] .hero-copy { border-color: var(--line); background: var(--surface); }
+:root[data-theme="dark"] .hero .eyebrow { color: var(--primary); }
+:root[data-theme="dark"] .hero .hero-description, :root[data-theme="dark"] .hero .local-note { color: var(--muted); }
+:root[data-theme="dark"] .hero-media { border-color: var(--line); background: linear-gradient(157deg, color-mix(in srgb, var(--mist) 44%, var(--surface)), var(--surface-soft)); }
 :root[data-theme="dark"] .video-frame { background: linear-gradient(145deg, color-mix(in srgb, var(--mist) 34%, var(--surface)), var(--forest-dark)); }
 
 .trip-section { padding: clamp(56px, 7vw, 90px) 0; }
