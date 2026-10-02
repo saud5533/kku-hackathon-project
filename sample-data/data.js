@@ -70,7 +70,7 @@ window.ABHA_VISITOR_GUIDE_DATA = {
     {
       id: "asir-overlook", area: "natural", location: { en: "Asir", ar: "عسير" }, title: { en: "Asir", ar: "Asir" },
       description: { en: "A mountain-region stop for wide ridges, cool air, and time to take in the changing highland views.", ar: "محطة جبلية للاستمتاع بالسلاسل الواسعة والهواء العليل وتغيّر إطلالات المرتفعات." }, visitorTip: { en: "Check local road and weather conditions before setting out, especially when mist settles over the mountains.", ar: "تحقق من حالة الطرق والطقس محليًا قبل الانطلاق، خصوصًا عند انتشار الضباب فوق الجبال." }, tags: { en: ["Mountain views", "Highland air"], ar: ["إطلالات جبلية", "هواء المرتفعات"] }, duration: 90, mapQuery: "Asir Mountains, Saudi Arabia", gradient: "lavender",
-      image: { src: "assets/destinations/asir-overlook.svg", width: 800, height: 500, alt: { en: "Warm-toned mountain ridges in the Asir region under a pale sky", ar: "سلاسل جبلية دافئة الألوان في منطقة عسير تحت سماء فاتحة" } }
+      image: { src: "assets/destinations/asir-overlook-portrait.jpg", width: 818, height: 1600, alt: { en: "Green mountain ridges and a winding road in the Asir region beneath blue skies and clouds", ar: "سلاسل جبلية خضراء وطريق متعرج في منطقة عسير تحت سماء زرقاء وغيوم" } }
     },
     {
       id: "heritage-courtyard", area: "culture", location: { en: "Abha", ar: "أبها" }, title: { en: "Heritage Courtyard", ar: "فناء التراث" },
