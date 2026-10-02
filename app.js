@@ -15,6 +15,7 @@
   const validIds = new Set(data.destinations.map((destination) => destination.id));
   const validWeather = new Set(Object.keys(data.weather));
   const mediaQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  let visibleVideoObserver = null;
 
   const safeRead = (key, fallback) => {
     try {
@@ -92,6 +93,46 @@
     window.setTimeout(() => { elements.status.textContent = message; }, 20);
   }
 
+  function bindVisibleVideoPlayback(scope = document) {
+    if (visibleVideoObserver) visibleVideoObserver.disconnect();
+    const players = [...scope.querySelectorAll("video[data-visibility-playback]")];
+    const pauseForVisibility = (player) => {
+      if (player.paused) {
+        delete player.dataset.visibilityPause;
+        return;
+      }
+      player.dataset.visibilityPause = "true";
+      player.pause();
+    };
+    const playForVisibility = (player) => {
+      if (player.dataset.manualPause === "true") return;
+      player.play().catch(() => {});
+    };
+
+    players.forEach((player) => {
+      player.muted = true;
+      player.defaultMuted = true;
+      player.addEventListener("pause", () => {
+        if (player.dataset.visibilityPause === "true") delete player.dataset.visibilityPause;
+        else if (!player.ended) player.dataset.manualPause = "true";
+      });
+      player.addEventListener("play", () => { delete player.dataset.manualPause; });
+    });
+
+    if (!("IntersectionObserver" in window)) {
+      players.forEach(playForVisibility);
+      return;
+    }
+
+    visibleVideoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.45) playForVisibility(entry.target);
+        else pauseForVisibility(entry.target);
+      });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: [0, 0.45] });
+    players.forEach((player) => visibleVideoObserver.observe(player));
+  }
+
   function applyDocumentPreferences() {
     document.documentElement.dataset.theme = state.theme;
     document.documentElement.lang = state.language;
@@ -118,30 +159,22 @@
     elements.heroImage.height = hero.height;
 
     const video = data.media.discoverVideo;
-    elements.discoverNote.textContent = video.provider === "placeholder" ? text("discoverPlaceholder") : text("discoverPlaceholder");
-    elements.discoverPlayer.innerHTML = `
-      <div class="video-frame media-fallback">
-        <img class="discover-poster" src="${safeText(video.posterSrc)}" alt="${safeText(video.posterAlt[state.language])}" width="${video.posterWidth}" height="${video.posterHeight}">
-        <div class="media-art-fallback" aria-hidden="true"></div>
-        <button class="video-play" type="button" data-action="play-video" aria-label="${safeText(text("discoverPlay"))}">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8 5 11 7-11 7Z"/></svg><span>${text("discoverPlay")}</span>
-        </button>
-      </div>
-    `;
-    elements.discoverPlayer.querySelector("img").addEventListener("error", showImageFallback, { once: true });
-  }
-
-  function playDiscoverVideo() {
-    const video = data.media.discoverVideo;
+    const captions = video.captions?.[state.language];
+    elements.discoverNote.textContent = text("discoverPlaceholder");
     if (video.provider === "mp4" && localPath(video.localMp4Src)) {
-      const captions = video.captions?.[state.language];
       elements.discoverPlayer.innerHTML = `
-        <div class="video-frame video-frame-native" style="--video-aspect-ratio: ${video.videoWidth} / ${video.videoHeight}"><video controls playsinline preload="metadata" poster="${safeText(video.posterSrc)}" aria-label="${safeText(text("discoverVideoTitle"))}" width="${video.videoWidth}" height="${video.videoHeight}">
-          <source src="${safeText(video.localMp4Src)}" type="video/mp4">${captions && localPath(captions) ? `<track kind="captions" src="${safeText(captions)}" srclang="${state.language}" label="${state.language}" default>` : ""}
-        </video></div>`;
+        <div class="video-frame video-frame-native video-emphasis media-fallback" style="--video-aspect-ratio: ${video.videoWidth} / ${video.videoHeight}">
+          <video data-visibility-playback controls muted loop playsinline preload="metadata" poster="${safeText(video.posterSrc)}" aria-label="${safeText(text("discoverVideoTitle"))}" width="${video.videoWidth}" height="${video.videoHeight}">
+            <source src="${safeText(video.localMp4Src)}" type="video/mp4">${captions && localPath(captions) ? `<track kind="captions" src="${safeText(captions)}" srclang="${state.language}" label="${state.language}" default>` : ""}
+          </video>
+          <img class="discover-poster video-poster-fallback" src="${safeText(video.posterSrc)}" alt="${safeText(video.posterAlt[state.language])}" width="${video.posterWidth}" height="${video.posterHeight}">
+          <span class="video-label">${safeText(text("discoverVideoTitle"))}</span>
+          <div class="media-art-fallback" aria-hidden="true"></div>
+        </div>`;
       const player = elements.discoverPlayer.querySelector("video");
-      player.addEventListener("error", () => { renderMedia(); setStatus(text("discoverUnavailable")); }, { once: true });
-      player.play().catch(() => {});
+      player.addEventListener("error", () => { player.closest(".video-frame")?.classList.add("has-image-error"); setStatus(text("discoverUnavailable")); }, { once: true });
+      elements.discoverPlayer.querySelector("img").addEventListener("error", showImageFallback, { once: true });
+      bindVisibleVideoPlayback(elements.discoverPlayer);
       return;
     }
 
@@ -151,6 +184,7 @@
       return;
     }
 
+    elements.discoverPlayer.innerHTML = "";
     setStatus(text("discoverUnavailable"));
   }
 
@@ -180,9 +214,10 @@
     const video = destination.video;
     const hasVideo = video?.provider === "mp4" && localPath(video.localMp4Src);
     const media = hasVideo ? `
-          <video class="place-video" controls playsinline preload="metadata" poster="${safeText(destination.image.src)}" aria-label="${safeText(video.label?.[state.language])}" width="${video.videoWidth}" height="${video.videoHeight}">
+          <video class="place-video" data-visibility-playback controls muted loop playsinline preload="metadata" poster="${safeText(destination.image.src)}" aria-label="${safeText(video.label?.[state.language])}" width="${video.videoWidth}" height="${video.videoHeight}">
             <source src="${safeText(video.localMp4Src)}" type="video/mp4">${video.captions?.[state.language] && localPath(video.captions[state.language]) ? `<track kind="captions" src="${safeText(video.captions[state.language])}" srclang="${state.language}" label="${state.language}" default>` : ""}
           </video>
+          <span class="video-label">${safeText(video.label?.[state.language])}</span>
           <img class="place-image place-video-fallback" src="${safeText(destination.image.src)}" alt="${safeText(destination.image.alt[state.language])}" width="${destination.image.width}" height="${destination.image.height}" loading="lazy" decoding="async">
           <p class="place-video-error" hidden>${safeText(video.unavailable?.[state.language])}</p>` : `
           <img class="place-image" src="${safeText(destination.image.src)}" alt="${safeText(destination.image.alt[state.language])}" width="${destination.image.width}" height="${destination.image.height}" loading="lazy" decoding="async">`;
@@ -237,10 +272,11 @@
           <h3>${safeText(content.title)}</h3>
           <p>${safeText(content.description)}</p>
         </div>
-        <div class="natural-video-frame media-fallback" style="--natural-video-aspect-ratio: ${video.videoWidth} / ${video.videoHeight}">
-          <video controls playsinline preload="metadata" poster="${safeText(video.posterSrc)}" aria-label="${safeText(content.videoLabel)}" width="${video.videoWidth}" height="${video.videoHeight}">
+        <div class="natural-video-frame video-emphasis media-fallback" style="--natural-video-aspect-ratio: ${video.videoWidth} / ${video.videoHeight}">
+          <video data-visibility-playback controls muted loop playsinline preload="metadata" poster="${safeText(video.posterSrc)}" aria-label="${safeText(content.videoLabel)}" width="${video.videoWidth}" height="${video.videoHeight}">
             <source src="${safeText(video.localMp4Src)}" type="video/mp4">${video.captions?.[state.language] && localPath(video.captions[state.language]) ? `<track kind="captions" src="${safeText(video.captions[state.language])}" srclang="${state.language}" label="${state.language}" default>` : ""}
           </video>
+          <span class="video-label">${safeText(content.videoLabel)}</span>
           <div class="media-art-fallback" aria-hidden="true"></div>
           <p class="natural-video-error" hidden>${safeText(content.unavailable)}</p>
         </div>
@@ -361,6 +397,7 @@
     renderFavorites();
     renderWeather();
     renderLocalTips();
+    bindVisibleVideoPlayback();
     elements.clearPlan.disabled = state.plan.length === 0;
   }
 
@@ -416,10 +453,6 @@
     state.weather = validWeather.has(event.target.value) ? event.target.value : "sunny";
     saveState("weather", state.weather);
     renderWeather();
-  });
-
-  elements.discoverPlayer.addEventListener("click", (event) => {
-    if (event.target.closest("[data-action=\"play-video\"]")) playDiscoverVideo();
   });
 
   elements.loadExample.addEventListener("click", loadExample);

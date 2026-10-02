@@ -7,6 +7,7 @@ vm.createContext(context);
 vm.runInContext(source, context, { filename: "sample-data/data.js" });
 
 const data = context.window.ABHA_VISITOR_GUIDE_DATA;
+const appSource = fs.readFileSync("app.js", "utf8");
 const fail = (message) => { throw new Error(message); };
 const local = (path) => typeof path === "string" && path && !/^(?:https?:|\/|[A-Za-z]:|\/\/)/.test(path);
 const bilingual = (value) => value && value.en && value.ar;
@@ -116,4 +117,15 @@ if (!artStreet) fail("Art Street destination is missing.");
 if (artStreet.title?.en !== "شارع الفن" || artStreet.title?.ar !== "شارع الفن") fail("Art Street must use شارع الفن in both language fields.");
 if (!bilingual(artStreet.description) || !bilingual(artStreet.visitorTip) || !bilingual(artStreet.tags)) fail("Art Street needs bilingual visitor content.");
 
-console.log(`Media and area contract passed for ${data.destinations.length} destination images, ${destinationVideos.length} Cultural & Arts card videos, ${foodItems.length} Southern Food slots, and both local videos.`);
+const requiredPlaybackMarkup = 'data-visibility-playback controls muted loop playsinline preload="metadata"';
+const playerCount = (appSource.match(new RegExp(requiredPlaybackMarkup, "g")) || []).length;
+if (playerCount !== 3) fail("All local video renderers need muted looping visibility playback markup.");
+if (!appSource.includes("function bindVisibleVideoPlayback") || !appSource.includes("new IntersectionObserver") || !appSource.includes("player.pause()") || !appSource.includes("player.play().catch(() => {})")) {
+  fail("Guide needs IntersectionObserver-based visible-video playback.");
+}
+if (!appSource.includes("bindVisibleVideoPlayback();")) fail("Guide needs to rebind visible-video playback after rendering.");
+if (!appSource.includes("player.dataset.visibilityPause === \"true\"") || !appSource.includes("player.dataset.manualPause === \"true\"")) {
+  fail("Guide needs visibility pauses that do not override a visitor's manual pause.");
+}
+
+console.log(`Media and area contract passed for ${data.destinations.length} destination images, ${destinationVideos.length} Cultural & Arts card videos, ${foodItems.length} Southern Food slots, and visibility-managed local videos.`);
