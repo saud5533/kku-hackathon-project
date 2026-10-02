@@ -12,7 +12,7 @@ window.ABHA_VISITOR_GUIDE_DATA = {
       posterWidth: 1600,
       posterHeight: 900,
       posterAlt: { en: "Original illustrated poster of misty Abha mountains and a winding highland path", ar: "ملصق مرسوم أصلي لجبال أبها الضبابية وطريق متعرج في المرتفعات" },
-      localMp4Src: "assets/discover-abha.mp4",
+      localMp4Src: "assets/abha-discover-video.mp4",
       youtubeEmbedUrl: "",
       captions: { en: "", ar: "" }
     }

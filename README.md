@@ -53,7 +53,7 @@ To replace an illustration, add an appropriately licensed file inside `assets/`,
 
 Southern Food image slots live in `assets/foods/`. The gallery currently contains five local placeholder illustrations because no matching food photos are in the project yet. To replace a dish illustration with a licensed local food photo, add the photo there, then update the matching item in `southernFood.items` in `sample-data/data.js` with its relative `src`, dimensions, and English/Arabic `alt` text. Keep the item ID and its English-only title stable; the gallery remains informational and separate from destinations.
 
-The local Discover Abha video remains below 10 MB and loads only after the visitor selects **Play preview**. To replace it, put a licensed MP4 below 10 MB in `assets/` and update `localMp4Src` in `sample-data/data.js`. Matching caption files can be configured later if available.
+The local Discover Abha video is the supplied MP4 at `assets/abha-discover-video.mp4`, remains below 10 MB, and loads only after the visitor selects **Play preview**. To replace it, put a licensed MP4 below 10 MB in `assets/` and update `localMp4Src` in `sample-data/data.js`. Matching caption files can be configured later if available.
 
 Run `node verify-media.js` to validate the local image paths, bilingual alt text, dimensions, Southern Food slots, and default offline video configuration.
 
