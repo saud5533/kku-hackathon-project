@@ -21,6 +21,7 @@ file(data.media.discoverVideo.posterSrc, "Discover poster");
 if (!bilingual(data.media.discoverVideo.posterAlt) || !data.media.discoverVideo.posterWidth || !data.media.discoverVideo.posterHeight) fail("Discover poster needs bilingual alt text and dimensions.");
 if (data.media.discoverVideo.provider !== "mp4") fail("Discover video provider must be local MP4.");
 file(data.media.discoverVideo.localMp4Src, "Discover local video");
+if (!Number.isFinite(data.media.discoverVideo.videoWidth) || !Number.isFinite(data.media.discoverVideo.videoHeight) || data.media.discoverVideo.videoWidth <= 0 || data.media.discoverVideo.videoHeight <= 0) fail("Discover local video needs positive dimensions.");
 if (fs.statSync(data.media.discoverVideo.localMp4Src).size > 10 * 1024 * 1024) fail("Discover local video must stay below 10 MB.");
 
 if (!Array.isArray(data.areas) || !data.areas.length) fail("Guide needs at least one destination area.");

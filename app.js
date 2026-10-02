@@ -136,7 +136,7 @@
     if (video.provider === "mp4" && localPath(video.localMp4Src)) {
       const captions = video.captions?.[state.language];
       elements.discoverPlayer.innerHTML = `
-        <div class="video-frame"><video controls playsinline preload="metadata" aria-label="${safeText(text("discoverVideoTitle"))}">
+        <div class="video-frame video-frame-native" style="--video-aspect-ratio: ${video.videoWidth} / ${video.videoHeight}"><video controls playsinline preload="metadata" poster="${safeText(video.posterSrc)}" aria-label="${safeText(text("discoverVideoTitle"))}" width="${video.videoWidth}" height="${video.videoHeight}">
           <source src="${safeText(video.localMp4Src)}" type="video/mp4">${captions && localPath(captions) ? `<track kind="captions" src="${safeText(captions)}" srclang="${state.language}" label="${state.language}" default>` : ""}
         </video></div>`;
       const player = elements.discoverPlayer.querySelector("video");
