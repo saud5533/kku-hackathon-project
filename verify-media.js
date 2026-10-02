@@ -106,7 +106,7 @@ expectedFoodIds.forEach((id) => {
 
 const artStreet = data.destinations.find((destination) => destination.id === "art-street");
 if (!artStreet) fail("Art Street destination is missing.");
-if (artStreet.title?.en !== "Art Street" || artStreet.title?.ar !== "Art Street") fail("Art Street must use the English name in both language fields.");
+if (artStreet.title?.en !== "شارع الفن" || artStreet.title?.ar !== "شارع الفن") fail("Art Street must use شارع الفن in both language fields.");
 if (!bilingual(artStreet.description) || !bilingual(artStreet.visitorTip) || !bilingual(artStreet.tags)) fail("Art Street needs bilingual visitor content.");
 
 console.log(`Media and area contract passed for ${data.destinations.length} destination images, ${destinationVideos.length} Cultural & Arts card videos, ${foodItems.length} Southern Food slots, and both local videos.`);
