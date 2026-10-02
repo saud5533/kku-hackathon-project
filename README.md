@@ -51,7 +51,7 @@ All checked-in visuals in `assets/` are local project media: original SVG placeh
 
 To replace an illustration, add an appropriately licensed file inside `assets/`, then update the matching `src`, `width`, `height`, and English/Arabic `alt` fields in `sample-data/data.js`. Keep paths relative and local.
 
-Southern Food image slots live in `assets/foods/`. The gallery uses five supplied local food photos. To replace one, add a licensed local photo there, then update the matching item in `southernFood.items` in `sample-data/data.js` with its relative `src`, dimensions, and English/Arabic `alt` text. Keep the item ID and its English-only title stable; the gallery remains informational and separate from destinations.
+Southern Food image slots live in `assets/foods/`. The gallery uses five supplied local food photos. To replace one, add a licensed local photo there, then update the matching item in `southernFood.items` in `sample-data/data.js` with its relative `src`, dimensions, and English/Arabic `alt` text. Keep the item ID and its Arabic title stable; the gallery remains informational and separate from destinations.
 
 The local Discover Abha video is the supplied MP4 at `assets/abha-discover-video.mp4`, remains below 10 MB, and loads only after the visitor selects **Play preview**. Its native aspect ratio is preserved on mobile and desktop, with the local SVG poster shown while video metadata loads. To replace it, put a licensed MP4 below 10 MB in `assets/` and update `localMp4Src`, `videoWidth`, and `videoHeight` in `sample-data/data.js`. Matching caption files can be configured later if available.
 

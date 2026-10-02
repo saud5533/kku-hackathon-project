@@ -89,11 +89,18 @@ destinationVideos.forEach((destination) => {
 const foodItems = data.southernFood?.items;
 const expectedFoodIds = ["areekah", "mabthouth", "tasabee", "mashghouthah", "tannour-bread"];
 if (!Array.isArray(foodItems) || foodItems.length !== expectedFoodIds.length) fail("Southern Food gallery must contain five food cards.");
+const expectedFoodTitles = {
+  "areekah": "عريكة",
+  "mabthouth": "مبثوث",
+  "tasabee": "تصابيع",
+  "mashghouthah": "مشغوثة",
+  "tannour-bread": "خبز تنور"
+};
 const foodIds = new Set();
 foodItems.forEach((food) => {
   if (!food.id || foodIds.has(food.id)) fail(`Southern Food id must be unique: ${food.id || "missing"}`);
   foodIds.add(food.id);
-  if (typeof food.title !== "string" || !food.title.trim() || !bilingual(food.description)) fail(`${food.id} needs an English title and bilingual description.`);
+  if (food.title !== expectedFoodTitles[food.id] || !bilingual(food.description)) fail(`${food.id} needs its approved Arabic title and bilingual description.`);
   if (!food.image) fail(`${food.id} is missing image metadata.`);
   file(food.image.src, `${food.id} food image`);
   if (!bilingual(food.image.alt) || !food.image.width || !food.image.height) {
