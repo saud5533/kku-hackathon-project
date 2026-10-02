@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Original illustration placeholder for Haneeth">
+  <rect width="800" height="500" fill="#dcc7a4"/>
+  <path d="M0 363c116-43 253-42 400-8 147-34 284-35 400 8v137H0Z" fill="#6d503e"/>
+  <ellipse cx="400" cy="305" rx="236" ry="95" fill="#71442e"/>
+  <ellipse cx="400" cy="287" rx="213" ry="77" fill="#bd7040"/>
+  <path d="M321 306c-19-53 10-109 72-123 60-14 116 25 102 94-11 55-76 85-135 29Z" fill="#7d3827"/>
+  <path d="M350 275c34-30 74-30 112-5m-95 39c27 13 56 12 84-5" fill="none" stroke="#e5a45a" stroke-width="13" stroke-linecap="round"/>
+  <path d="m250 231 37 25m262-25-37 25" stroke="#f7e9c5" stroke-width="12" stroke-linecap="round"/>
+</svg>

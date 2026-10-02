@@ -63,6 +63,7 @@
     areaGrids: Object.fromEntries(data.areas.map((area) => [area.id, document.getElementById(`${area.id}-grid`)])),
     favoritesGrid: document.getElementById("favorites-grid"),
     favoriteCount: document.getElementById("favorite-count"),
+    southernFoodGrid: document.getElementById("southern-food-grid"),
     tripPlanner: document.getElementById("trip-planner"),
     loadExample: document.getElementById("load-example"),
     clearPlan: document.getElementById("clear-plan"),
@@ -216,6 +217,24 @@
     });
   }
 
+  function renderSouthernFoodGallery() {
+    const foods = data.southernFood?.items || [];
+    elements.southernFoodGrid.innerHTML = foods.map((food) => `
+      <article class="food-card">
+        <div class="food-scene media-fallback">
+          <img class="food-image" src="${safeText(food.image.src)}" alt="${safeText(food.image.alt[state.language])}" width="${food.image.width}" height="${food.image.height}" loading="lazy" decoding="async">
+          <div class="media-art-fallback" aria-hidden="true"></div>
+        </div>
+        <div class="food-card-body">
+          <h3>${safeText(food.title.en)}</h3>
+          <p>${safeText(food.description[state.language])}</p>
+        </div>
+      </article>
+    `).join("");
+
+    elements.southernFoodGrid.querySelectorAll(".food-image").forEach((image) => image.addEventListener("error", showImageFallback, { once: true }));
+  }
+
   function renderFavorites() {
     const savedDestinations = state.favorites.map(getDestination).filter(Boolean);
     elements.favoriteCount.textContent = savedDestinations.length;
@@ -283,6 +302,7 @@
     renderMedia();
     renderQuickLinks();
     renderDestinationAreas();
+    renderSouthernFoodGallery();
     renderPlanner();
     renderFavorites();
     renderWeather();

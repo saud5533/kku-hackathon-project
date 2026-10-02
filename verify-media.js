@@ -46,9 +46,27 @@ data.areas.forEach((area) => {
   if (!data.destinations.some((destination) => destination.area === area.id)) fail(`${area.id} area has no destinations.`);
 });
 
+const foodItems = data.southernFood?.items;
+const expectedFoodIds = ["areekah", "aseedah", "haneeth", "mandi", "maghsh", "mifa-bread"];
+if (!Array.isArray(foodItems) || foodItems.length !== expectedFoodIds.length) fail("Southern Food gallery must contain six food cards.");
+const foodIds = new Set();
+foodItems.forEach((food) => {
+  if (!food.id || foodIds.has(food.id)) fail(`Southern Food id must be unique: ${food.id || "missing"}`);
+  foodIds.add(food.id);
+  if (!bilingual(food.title) || !bilingual(food.description)) fail(`${food.id} needs bilingual title and description.`);
+  if (!food.image) fail(`${food.id} is missing image metadata.`);
+  file(food.image.src, `${food.id} food image`);
+  if (!bilingual(food.image.alt) || !food.image.width || !food.image.height) {
+    fail(`${food.id} food image needs bilingual alt text and dimensions.`);
+  }
+});
+expectedFoodIds.forEach((id) => {
+  if (!foodIds.has(id)) fail(`Southern Food card is missing: ${id}`);
+});
+
 const artStreet = data.destinations.find((destination) => destination.id === "art-street");
 if (!artStreet) fail("Art Street destination is missing.");
 if (artStreet.title?.en !== "Art Street" || artStreet.title?.ar !== "Art Street") fail("Art Street must use the English name in both language fields.");
 if (!bilingual(artStreet.description) || !bilingual(artStreet.visitorTip) || !bilingual(artStreet.tags)) fail("Art Street needs bilingual visitor content.");
 
-console.log(`Media and area contract passed for ${data.destinations.length} destination images and the local Discover video.`);
+console.log(`Media and area contract passed for ${data.destinations.length} destination images, ${foodItems.length} Southern Food slots, and the local Discover video.`);

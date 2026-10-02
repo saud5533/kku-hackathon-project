@@ -109,6 +109,46 @@ window.ABHA_VISITOR_GUIDE_DATA = {
       image: { src: "assets/destinations/rwd-basil.jpg", width: 719, height: 1280, alt: { en: "Rwd Basil branded table setting in Abha", ar: "طاولة بإعداد يحمل علامة Rwd Basil في أبها" } }
     }
   ],
+  southernFood: {
+    items: [
+      {
+        id: "areekah",
+        title: { en: "Areekah", ar: "Areekah" },
+        description: { en: "A comforting southern dish of soft wheat and dates, often finished with honey or ghee.", ar: "طبق جنوبي دافئ من القمح الطري والتمر، ويُقدَّم غالبًا مع العسل أو السمن." },
+        image: { src: "assets/foods/areekah.svg", width: 800, height: 500, alt: { en: "Original illustration of Areekah with dates and honey", ar: "رسم أصلي للعريكة مع التمر والعسل" } }
+      },
+      {
+        id: "aseedah",
+        title: { en: "Aseedah", ar: "Aseedah" },
+        description: { en: "A smooth, hearty wheat dish enjoyed warm, with a rich topping that brings the table together.", ar: "طبق قمح ناعم ومشبع يُستمتع به دافئًا مع إضافات غنية تجمع الجالسين حول المائدة." },
+        image: { src: "assets/foods/aseedah.svg", width: 800, height: 500, alt: { en: "Original illustration of a warm serving of Aseedah", ar: "رسم أصلي لطبق عصيدة دافئ" } }
+      },
+      {
+        id: "haneeth",
+        title: { en: "Haneeth", ar: "Haneeth" },
+        description: { en: "Slow-cooked meat known for its tender texture and deep, aromatic flavour.", ar: "لحم يُطهى ببطء ويشتهر بقوامه الطري ونكهته العطرية الغنية." },
+        image: { src: "assets/foods/haneeth.svg", width: 800, height: 500, alt: { en: "Original illustration of a serving of slow-cooked Haneeth", ar: "رسم أصلي لطبق حنيذ مطهو ببطء" } }
+      },
+      {
+        id: "mandi",
+        title: { en: "Mandi", ar: "Mandi" },
+        description: { en: "Fragrant rice with gently cooked meat, prepared for a generous shared meal.", ar: "أرز عطري مع لحم مطهو بهدوء، يُقدَّم كوجبة كريمة للمشاركة." },
+        image: { src: "assets/foods/mandi.svg", width: 800, height: 500, alt: { en: "Original illustration of Mandi rice and meat", ar: "رسم أصلي لأرز مندي مع اللحم" } }
+      },
+      {
+        id: "maghsh",
+        title: { en: "Maghsh", ar: "Maghsh" },
+        description: { en: "A colourful stone-pot dish that brings vegetables and warming spices to the table.", ar: "طبق ملون يُقدَّم في وعاء حجري ويجمع الخضار والتوابل الدافئة على المائدة." },
+        image: { src: "assets/foods/maghsh.svg", width: 800, height: 500, alt: { en: "Original illustration of Maghsh in a stone pot", ar: "رسم أصلي للمغش في وعاء حجري" } }
+      },
+      {
+        id: "mifa-bread",
+        title: { en: "Mifa Bread", ar: "Mifa Bread" },
+        description: { en: "Freshly baked bread with a gentle smoky character, made to accompany a shared meal.", ar: "خبز طازج بنكهة مدخنة خفيفة، يُعد لمرافقة وجبة مشتركة." },
+        image: { src: "assets/foods/mifa-bread.svg", width: 800, height: 500, alt: { en: "Original illustration of freshly baked Mifa Bread", ar: "رسم أصلي لخبز الميفا الطازج" } }
+      }
+    ]
+  },
   examplePlan: ["cloudline-park", "juniper-table", "al-namas-overlook"],
   localTips: {
     en: ["Check current local conditions before leaving for viewpoints.", "Allow a little extra driving time when mist settles over the highlands.", "Use Maps to confirm a destination before you leave, and keep water and a light layer with you."],
@@ -124,14 +164,14 @@ window.ABHA_VISITOR_GUIDE_DATA = {
     en: {
       heroEyebrow: "A quieter way to explore", heroTitle: "Find your rhythm in the highlands.", heroDescription: "Choose a few special stops across Abha and Al Namas, then keep your day beautifully simple.", explorePlaces: "Explore places", loadExample: "Load example plan", offlineNote: "Works offline · Your choices stay on this device",
       discoverEyebrow: "See the landscape", discoverTitle: "Discover Abha", discoverDescription: "Watch a short local video of Abha’s misty highlands, ready when you are.", discoverPlay: "Play preview", discoverPlaceholder: "A short local video is ready to play when you select the preview.", discoverUnavailable: "The local video could not be played. The guide remains available offline.", discoverVideoTitle: "Discover Abha video", discoverYoutube: "Watch on YouTube",
-      quickEyebrow: "Choose your next stop", quickTitle: "Explore by area", quickNavLabel: "Quick destination shortcuts", naturalEyebrow: "Fresh air and wide views", naturalTitle: "Natural Attractions", cultureEyebrow: "Stories, colour, and craft", cultureTitle: "Cultural & Arts", cafesEyebrow: "A gentle coffee pause", cafesTitle: "Cafes", restaurantsEyebrow: "Make room for a meal", restaurantsTitle: "Restaurants",
+      quickEyebrow: "Choose your next stop", quickTitle: "Explore by area", quickNavLabel: "Quick destination shortcuts", naturalEyebrow: "Fresh air and wide views", naturalTitle: "Natural Attractions", cultureEyebrow: "Stories, colour, and craft", cultureTitle: "Cultural & Arts", cafesEyebrow: "A gentle coffee pause", cafesTitle: "Cafes", restaurantsEyebrow: "Make room for a meal", restaurantsTitle: "Restaurants", southernFoodEyebrow: "A taste of the highlands", southernFoodTitle: "Southern Food", southernFoodDescription: "Discover a few much-loved southern dishes, each shown here with a local image slot ready for a future food photo.",
       yourDayEyebrow: "Your little itinerary", tripTitle: "Today’s trip plan", clearPlan: "Clear plan", favoritesEyebrow: "Saved for later", favoritesTitle: "Favorites", favoritesEmptyTitle: "No favorites saved yet.", favoritesEmptyHint: "Save a place you would like to keep close, and it will appear here.", packingEyebrow: "Pack thoughtfully", weatherTitle: "Clothing advice", weatherLabel: "Choose a planning condition", weatherDisclaimer: "Planning guidance only — check current local conditions before leaving.", localTipsEyebrow: "Know before you go", localTipsTitle: "Local tips",
       visitorTip: "Visitor tip", footerGuide: "A made-up sample guide for thoughtful visitors.", footerPrivacy: "Favorites and plans are saved only in your browser.", addedToPlan: "Added to plan", addToPlan: "Add to plan", removeFromPlan: "Remove from plan", addFavorite: "Save favorite", removeFavorite: "Remove favorite", openMaps: "Open in Google Maps", mapsNote: "Opens Google Maps in a new tab", duration: "min", noPlan: "Your plan is open for a good idea.", noPlanHint: "Add a place that feels right, or start with our example plan.", planStops: "stops", planMinutes: "minutes of unhurried exploring", moveUp: "Move up", moveDown: "Move down", remove: "Remove", inPlan: "In plan", favorite: "Favorite", statusAdded: "{place} was added to your plan.", statusRemoved: "{place} was removed from your plan.", statusSaved: "{place} was saved to favorites.", statusUnsaved: "{place} was removed from favorites.", statusLoaded: "The example plan is ready to explore.", statusCleared: "Your trip plan was cleared.", switchTheme: "Switch to dark mode", switchLight: "Switch to light mode", switchArabic: "Switch to Arabic", switchEnglish: "Switch to English"
     },
     ar: {
       heroEyebrow: "طريقة أهدأ للاستكشاف", heroTitle: "اكتشف إيقاعك بين المرتفعات.", heroDescription: "اختر بعض المحطات المميزة في أبها والنماص، واجعل يومك بسيطًا وجميلاً.", explorePlaces: "استكشف الأماكن", loadExample: "حمّل خطة مثال", offlineNote: "يعمل دون اتصال · اختياراتك تبقى على هذا الجهاز",
       discoverEyebrow: "شاهد المشهد الطبيعي", discoverTitle: "اكتشف أبها", discoverDescription: "شاهد فيديو محليًا قصيرًا عن مرتفعات أبها الضبابية عندما تكون مستعدًا.", discoverPlay: "تشغيل المعاينة", discoverPlaceholder: "فيديو محلي قصير جاهز للتشغيل عند اختيار المعاينة.", discoverUnavailable: "تعذر تشغيل الفيديو المحلي. يظل الدليل متاحًا دون اتصال.", discoverVideoTitle: "فيديو اكتشف أبها", discoverYoutube: "شاهد على YouTube",
-      quickEyebrow: "اختر محطتك التالية", quickTitle: "استكشف حسب المنطقة", quickNavLabel: "اختصارات سريعة للوجهات", naturalEyebrow: "هواء نقي وإطلالات واسعة", naturalTitle: "المعالم الطبيعية", cultureEyebrow: "حكايات وألوان وحرف", cultureTitle: "الثقافة والفنون", cafesEyebrow: "استراحة قهوة هادئة", cafesTitle: "المقاهي", restaurantsEyebrow: "اترك وقتًا للوجبة", restaurantsTitle: "المطاعم",
+      quickEyebrow: "اختر محطتك التالية", quickTitle: "استكشف حسب المنطقة", quickNavLabel: "اختصارات سريعة للوجهات", naturalEyebrow: "هواء نقي وإطلالات واسعة", naturalTitle: "المعالم الطبيعية", cultureEyebrow: "حكايات وألوان وحرف", cultureTitle: "الثقافة والفنون", cafesEyebrow: "استراحة قهوة هادئة", cafesTitle: "المقاهي", restaurantsEyebrow: "اترك وقتًا للوجبة", restaurantsTitle: "المطاعم", southernFoodEyebrow: "نكهات من المرتفعات", southernFoodTitle: "الأكلات الجنوبية", southernFoodDescription: "تعرّف على عدد من الأطباق الجنوبية المحببة، مع مساحة لصورة محلية يمكن استبدالها لاحقًا لكل طبق.",
       yourDayEyebrow: "مسار يومك الصغير", tripTitle: "خطة رحلتك اليوم", clearPlan: "مسح الخطة", favoritesEyebrow: "محفوظة لوقت لاحق", favoritesTitle: "المفضلة", favoritesEmptyTitle: "لا توجد أماكن محفوظة بعد.", favoritesEmptyHint: "احفظ مكانًا تريد الاحتفاظ به قريبًا وسيظهر هنا.", packingEyebrow: "احزم أمتعتك بعناية", weatherTitle: "نصيحة الملابس", weatherLabel: "اختر حالة للتخطيط", weatherDisclaimer: "هذه إرشادات للتخطيط فقط — تحقق من الأحوال المحلية الحالية قبل المغادرة.", localTipsEyebrow: "اعرف قبل أن تذهب", localTipsTitle: "نصائح محلية",
       visitorTip: "نصيحة للزائر", footerGuide: "دليل تجريبي ببيانات خيالية للزوار المتأملين.", footerPrivacy: "تُحفظ المفضلة والخطط في متصفحك فقط.", addedToPlan: "ضمن الخطة", addToPlan: "أضف إلى الخطة", removeFromPlan: "أزل من الخطة", addFavorite: "احفظ في المفضلة", removeFavorite: "أزل من المفضلة", openMaps: "افتح في خرائط Google", mapsNote: "تفتح خرائط Google في علامة تبويب جديدة", duration: "دقيقة", noPlan: "خطتك تنتظر فكرة جميلة.", noPlanHint: "أضف مكانًا يعجبك، أو ابدأ بخطة المثال.", planStops: "محطات", planMinutes: "دقيقة للاستكشاف بهدوء", moveUp: "نقل للأعلى", moveDown: "نقل للأسفل", remove: "إزالة", inPlan: "ضمن الخطة", favorite: "مفضلة", statusAdded: "تمت إضافة {place} إلى خطتك.", statusRemoved: "تمت إزالة {place} من خطتك.", statusSaved: "تم حفظ {place} في المفضلة.", statusUnsaved: "تمت إزالة {place} من المفضلة.", statusLoaded: "خطة المثال جاهزة للاستكشاف.", statusCleared: "تم مسح خطة رحلتك.", switchTheme: "التبديل إلى الوضع الداكن", switchLight: "التبديل إلى الوضع الفاتح", switchArabic: "التبديل إلى العربية", switchEnglish: "التبديل إلى الإنجليزية"
     }

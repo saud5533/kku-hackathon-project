@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Original illustration placeholder for Maghsh">
+  <rect width="800" height="500" fill="#d3c6af"/>
+  <path d="M0 360c135-40 265-43 400-8 141-35 269-30 400 8v140H0Z" fill="#587b7f"/>
+  <path d="M267 288c0-91 60-151 133-151s133 60 133 151v65H267Z" fill="#70452f"/>
+  <path d="M285 292c0-72 52-123 115-123s115 51 115 123v36H285Z" fill="#ba7043"/>
+  <ellipse cx="400" cy="299" rx="91" ry="54" fill="#e2a747"/>
+  <circle cx="361" cy="284" r="17" fill="#315c45"/>
+  <circle cx="417" cy="309" r="18" fill="#8d432b"/>
+  <circle cx="448" cy="272" r="14" fill="#f7e7bb"/>
+  <path d="M258 356h284" stroke="#f0d4a0" stroke-width="14" stroke-linecap="round"/>
+</svg>
