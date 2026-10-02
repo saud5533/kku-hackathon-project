@@ -70,11 +70,6 @@ window.ABHA_VISITOR_GUIDE_DATA = {
       image: { src: "assets/destinations/row-coffee.svg", width: 800, height: 500, alt: { en: "Original illustration of iced coffee and a small notebook on a café table", ar: "رسم أصلي لقهوة باردة ودفتر صغير على طاولة مقهى" } }
     },
     {
-      id: "medhal-coffee", category: "food", location: { en: "Abha", ar: "أبها" }, title: { en: "Medhal Coffee", ar: "كوفي مدهال" },
-      description: { en: "A neutral coffee stop for a quick drink and a quiet reset.", ar: "محطة قهوة هادئة لمشروب سريع واستراحة قصيرة." }, tags: { en: ["Quick pause", "Coffee"], ar: ["استراحة سريعة", "قهوة"] }, duration: 35, mapQuery: "كوفي مدهال أبها", gradient: "mist",
-      image: { src: "assets/destinations/medhal-coffee.svg", width: 800, height: 500, alt: { en: "Original illustration of a coffee pot and cup on a patterned café table", ar: "رسم أصلي لدلة وفنجان قهوة على طاولة مقهى مزخرفة" } }
-    },
-    {
       id: "prime-cut", category: "food", location: { en: "Abha", ar: "أبها" }, title: { en: "Prime Cut", ar: "Prime Cut" },
       description: { en: "A relaxed restaurant stop for a considered meal during a day around Abha.", ar: "محطة مطعم هادئة لوجبة متأنية خلال يوم في أبها." }, visitorTip: { en: "Consider checking current opening times before you go.", ar: "تحقق من أوقات العمل الحالية قبل الزيارة." }, tags: { en: ["Restaurant", "Meal stop"], ar: ["مطعم", "توقف للوجبة"] }, duration: 75, mapQuery: "Prime Cut Cafe Abha", gradient: "clay",
       image: { src: "assets/destinations/prime-cut.svg", width: 800, height: 500, alt: { en: "Original illustration of a warm restaurant table with a plated meal", ar: "رسم أصلي لطاولة مطعم دافئة مع طبق مُقدَّم" } }

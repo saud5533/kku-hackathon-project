@@ -37,11 +37,18 @@
   const validTheme = (value) => value === "light" || value === "dark" ? value : (mediaQuery && mediaQuery.matches ? "dark" : "light");
   const validLanguage = (value) => value === "ar" || value === "en" ? value : "en";
 
+  const storedFavorites = safeRead(storageKeys.favorites, []);
+  const storedPlan = safeRead(storageKeys.plan, []);
+  const favorites = validList(storedFavorites);
+  const plan = validList(storedPlan);
+  if (JSON.stringify(favorites) !== JSON.stringify(storedFavorites)) safeWrite(storageKeys.favorites, favorites);
+  if (JSON.stringify(plan) !== JSON.stringify(storedPlan)) safeWrite(storageKeys.plan, plan);
+
   const state = {
     language: validLanguage(safeRead(storageKeys.language, "en")),
     theme: validTheme(safeRead(storageKeys.theme, null)),
-    favorites: validList(safeRead(storageKeys.favorites, [])),
-    plan: validList(safeRead(storageKeys.plan, [])),
+    favorites,
+    plan,
     weather: validWeather.has(safeRead(storageKeys.weather, "sunny")) ? safeRead(storageKeys.weather, "sunny") : "sunny",
     category: "all",
     favoritesOnly: false
@@ -67,7 +74,7 @@
   };
 
   const text = (key) => data.copy[state.language][key] || key;
-  const englishNamedVenues = new Set(["hayz-coffee", "nair-coffee", "row-coffee", "medhal-coffee", "prime-cut", "rwd-basil"]);
+  const englishNamedVenues = new Set(["hayz-coffee", "nair-coffee", "row-coffee", "prime-cut", "rwd-basil"]);
   const getDestination = (id) => data.destinations.find((destination) => destination.id === id);
   const getDisplayTitle = (destination) => englishNamedVenues.has(destination.id) ? destination.title.en : destination.title[state.language];
   const mapUrl = (query) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
