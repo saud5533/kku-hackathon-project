@@ -51,9 +51,9 @@ window.ABHA_VISITOR_GUIDE_DATA = {
   ],
   destinations: [
     {
-      id: "al-namas-overlook", area: "natural", location: { en: "Al Namas", ar: "النماص" }, title: { en: "Al Namas Overlook", ar: "جمال الطبيعة" },
-      description: { en: "A slow, scenic stop for highland views, cool breezes, and a long golden-hour pause.", ar: "توقّف هادئ لإطلالات المرتفعات والنسيم العليل ولحظات الغروب الطويلة." }, tags: { en: ["Golden hour", "Scenic drive"], ar: ["وقت الغروب", "رحلة بالسيارة"] }, duration: 90, mapQuery: "Al Namas Overlook, Al Namas, Saudi Arabia", gradient: "lavender",
-      image: { src: "assets/destinations/al-namas-overlook.svg", width: 800, height: 500, alt: { en: "Original illustration of a golden view from an Al Namas mountain overlook", ar: "رسم أصلي لإطلالة ذهبية من مرتفعات النماص" } }
+      id: "asir-overlook", area: "natural", location: { en: "Asir", ar: "عسير" }, title: { en: "Asir", ar: "Asir" },
+      description: { en: "A mountain-region stop for wide ridges, cool air, and time to take in the changing highland views.", ar: "محطة جبلية للاستمتاع بالسلاسل الواسعة والهواء العليل وتغيّر إطلالات المرتفعات." }, visitorTip: { en: "Check local road and weather conditions before setting out, especially when mist settles over the mountains.", ar: "تحقق من حالة الطرق والطقس محليًا قبل الانطلاق، خصوصًا عند انتشار الضباب فوق الجبال." }, tags: { en: ["Mountain views", "Highland air"], ar: ["إطلالات جبلية", "هواء المرتفعات"] }, duration: 90, mapQuery: "Asir Mountains, Saudi Arabia", gradient: "lavender",
+      image: { src: "assets/destinations/asir-overlook.svg", width: 800, height: 500, alt: { en: "Original illustration of misty mountain ridges in the Asir region", ar: "رسم أصلي لسلاسل جبلية ضبابية في منطقة عسير" } }
     },
     {
       id: "terrace-trail", area: "natural", location: { en: "Al Namas", ar: "النماص" }, title: { en: "Terrace Trail", ar: "مسار المدرجات" },
@@ -140,7 +140,7 @@ window.ABHA_VISITOR_GUIDE_DATA = {
       }
     ]
   },
-  examplePlan: ["terrace-trail", "juniper-table", "al-namas-overlook"],
+  examplePlan: ["terrace-trail", "juniper-table", "asir-overlook"],
   localTips: {
     en: ["Check current local conditions before leaving for viewpoints.", "Allow a little extra driving time when mist settles over the highlands.", "Use Maps to confirm a destination before you leave, and keep water and a light layer with you."],
     ar: ["تحقق من الأحوال المحلية الحالية قبل التوجه إلى الإطلالات.", "اترك وقتًا إضافيًا قليلًا للقيادة عندما يستقر الضباب فوق المرتفعات.", "استخدم الخرائط لتأكيد وجهتك قبل المغادرة، واحتفظ بالماء وطبقة خفيفة معك."]
