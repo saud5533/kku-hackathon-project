@@ -57,27 +57,27 @@ window.ABHA_VISITOR_GUIDE_DATA = {
     {
       id: "hayz-coffee", category: "food", location: { en: "Abha", ar: "أبها" }, title: { en: "Hayz Coffee", ar: "كوفي حيز" },
       description: { en: "A casual coffee stop for a short pause between highland plans.", ar: "محطة قهوة هادئة لتوقف قصير بين خطط المرتفعات." }, tags: { en: ["Coffee break", "Casual stop"], ar: ["استراحة قهوة", "توقف هادئ"] }, duration: 40, mapQuery: "كوفي حيز أبها", gradient: "honey",
-      image: { src: "assets/destinations/hayz-coffee.svg", width: 800, height: 500, alt: { en: "Original illustration of a warm coffee cup and pastry on a café table", ar: "رسم أصلي لفنجان قهوة دافئ ومعجنات على طاولة مقهى" } }
+      image: { src: "assets/destinations/hayz-coffee.jpg", width: 720, height: 1280, alt: { en: "H’YZ Coffee storefront in Abha", ar: "واجهة مقهى H’YZ في أبها" } }
     },
     {
       id: "nair-coffee", category: "food", location: { en: "Abha", ar: "أبها" }, title: { en: "Nair Coffee", ar: "كوفي نير" },
       description: { en: "A simple café stop for coffee and an unhurried moment in the day.", ar: "محطة مقهى بسيطة للقهوة ولحظة هادئة خلال اليوم." }, tags: { en: ["Coffee break", "Slow moment"], ar: ["استراحة قهوة", "لحظة هادئة"] }, duration: 40, mapQuery: "كوفي نير أبها", gradient: "clay",
-      image: { src: "assets/destinations/nair-coffee.svg", width: 800, height: 500, alt: { en: "Original illustration of a coffee cup beside a sunlit café window", ar: "رسم أصلي لفنجان قهوة بجانب نافذة مقهى مضيئة" } }
+      image: { src: "assets/destinations/nair-coffee.jpg", width: 720, height: 1280, alt: { en: "Nair Coffee storefront sign in Abha", ar: "لافتة واجهة مقهى نير في أبها" } }
     },
     {
       id: "row-coffee", category: "food", location: { en: "Abha", ar: "أبها" }, title: { en: "Row Coffee", ar: "رو كوفي" },
       description: { en: "A relaxed coffee stop to add a gentle pause to a day around Abha.", ar: "محطة قهوة مريحة لإضافة استراحة لطيفة إلى يوم في أبها." }, tags: { en: ["Coffee break", "Relaxed"], ar: ["استراحة قهوة", "استرخاء"] }, duration: 45, mapQuery: "Row Coffee Abha", gradient: "sage",
-      image: { src: "assets/destinations/row-coffee.svg", width: 800, height: 500, alt: { en: "Original illustration of iced coffee and a small notebook on a café table", ar: "رسم أصلي لقهوة باردة ودفتر صغير على طاولة مقهى" } }
+      image: { src: "assets/destinations/row-coffee.jpg", width: 720, height: 1280, alt: { en: "Row Coffee night storefront and drive-through in Abha", ar: "واجهة وممر خدمة رو كوفي الليلي في أبها" } }
     },
     {
       id: "prime-cut", category: "food", location: { en: "Abha", ar: "أبها" }, title: { en: "Prime Cut", ar: "Prime Cut" },
       description: { en: "A relaxed restaurant stop for a considered meal during a day around Abha.", ar: "محطة مطعم هادئة لوجبة متأنية خلال يوم في أبها." }, visitorTip: { en: "Consider checking current opening times before you go.", ar: "تحقق من أوقات العمل الحالية قبل الزيارة." }, tags: { en: ["Restaurant", "Meal stop"], ar: ["مطعم", "توقف للوجبة"] }, duration: 75, mapQuery: "Prime Cut Cafe Abha", gradient: "clay",
-      image: { src: "assets/destinations/prime-cut.svg", width: 800, height: 500, alt: { en: "Original illustration of a warm restaurant table with a plated meal", ar: "رسم أصلي لطاولة مطعم دافئة مع طبق مُقدَّم" } }
+      image: { src: "assets/destinations/prime-cut.jpg", width: 720, height: 1280, alt: { en: "Prime Cut night storefront and dining area in Abha", ar: "واجهة ومنطقة جلوس برايم كت الليلية في أبها" } }
     },
     {
       id: "rwd-basil", category: "food", location: { en: "Abha", ar: "أبها" }, title: { en: "Rwd Basil", ar: "Rwd Basil" },
       description: { en: "A simple restaurant stop for a meal and an unhurried pause in the day.", ar: "محطة مطعم بسيطة لوجبة واستراحة هادئة خلال اليوم." }, visitorTip: { en: "Use the Maps search to confirm the current location before leaving.", ar: "استخدم بحث الخرائط لتأكيد الموقع الحالي قبل المغادرة." }, tags: { en: ["Restaurant", "Relaxed meal"], ar: ["مطعم", "وجبة هادئة"] }, duration: 70, mapQuery: "Rwd Basil Abha", gradient: "sage",
-      image: { src: "assets/destinations/rwd-basil.svg", width: 800, height: 500, alt: { en: "Original illustration of a restaurant table with herbs and shared dishes", ar: "رسم أصلي لطاولة مطعم مع أعشاب وأطباق مشتركة" } }
+      image: { src: "assets/destinations/rwd-basil.jpg", width: 719, height: 1280, alt: { en: "Rwd Basil branded table setting in Abha", ar: "طاولة بإعداد يحمل علامة Rwd Basil في أبها" } }
     }
   ],
   examplePlan: ["cloudline-park", "juniper-table", "al-namas-overlook"],
