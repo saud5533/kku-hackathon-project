@@ -208,12 +208,47 @@
     scope.querySelectorAll(".place-image").forEach((image) => image.addEventListener("error", showImageFallback, { once: true }));
   }
 
+  function renderNaturalVideoCard(video) {
+    const content = video.content?.[state.language];
+    if (!content || video.provider !== "mp4" || !localPath(video.localMp4Src) || !localPath(video.posterSrc)) return "";
+    return `
+      <article class="natural-video-card">
+        <div class="natural-video-copy">
+          <p class="eyebrow">${safeText(content.eyebrow)}</p>
+          <h3>${safeText(content.title)}</h3>
+          <p>${safeText(content.description)}</p>
+        </div>
+        <div class="natural-video-frame media-fallback" style="--natural-video-aspect-ratio: ${video.videoWidth} / ${video.videoHeight}">
+          <video controls playsinline preload="metadata" poster="${safeText(video.posterSrc)}" aria-label="${safeText(content.videoLabel)}" width="${video.videoWidth}" height="${video.videoHeight}">
+            <source src="${safeText(video.localMp4Src)}" type="video/mp4">${video.captions?.[state.language] && localPath(video.captions[state.language]) ? `<track kind="captions" src="${safeText(video.captions[state.language])}" srclang="${state.language}" label="${state.language}" default>` : ""}
+          </video>
+          <div class="media-art-fallback" aria-hidden="true"></div>
+          <p class="natural-video-error" hidden>${safeText(content.unavailable)}</p>
+        </div>
+      </article>
+    `;
+  }
+
+  function bindNaturalVideoFallbacks(scope) {
+    scope.querySelectorAll(".natural-video-frame").forEach((frame) => {
+      const player = frame.querySelector("video");
+      const error = frame.querySelector(".natural-video-error");
+      if (!player || !error) return;
+      player.addEventListener("error", () => {
+        frame.classList.add("has-image-error");
+        error.hidden = false;
+      }, { once: true });
+    });
+  }
+
   function renderDestinationAreas() {
+    const naturalVideo = data.media.naturalVideo;
     data.areas.forEach((area) => {
       const grid = elements.areaGrids[area.id];
       const places = data.destinations.filter((destination) => destination.area === area.id);
-      grid.innerHTML = places.map(renderDestinationCard).join("");
+      grid.innerHTML = places.map((destination) => `${renderDestinationCard(destination)}${naturalVideo?.areaId === area.id && naturalVideo.afterDestinationId === destination.id ? renderNaturalVideoCard(naturalVideo) : ""}`).join("");
       bindCardImageFallbacks(grid);
+      bindNaturalVideoFallbacks(grid);
     });
   }
 

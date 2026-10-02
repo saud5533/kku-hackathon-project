@@ -17,6 +17,23 @@ window.ABHA_VISITOR_GUIDE_DATA = {
       videoHeight: 480,
       youtubeEmbedUrl: "",
       captions: { en: "", ar: "" }
+    },
+    naturalVideo: {
+      provider: "mp4",
+      areaId: "natural",
+      afterDestinationId: "terrace-trail",
+      posterSrc: "assets/southern-mountains-poster.svg",
+      posterWidth: 480,
+      posterHeight: 848,
+      posterAlt: { en: "Original illustrated poster of misty southern mountain ridges", ar: "ملصق مرسوم أصلي لسلاسل الجبال الجنوبية الضبابية" },
+      localMp4Src: "assets/southern-mountains-video.mp4",
+      videoWidth: 480,
+      videoHeight: 848,
+      captions: { en: "", ar: "" },
+      content: {
+        en: { eyebrow: "Watch the landscape", title: "Southern Mountains", description: "A short local nature video of the mountain landscape, ready to play with native controls.", videoLabel: "Southern Mountains nature video", unavailable: "The local mountain video could not be played. The guide remains available offline." },
+        ar: { eyebrow: "شاهد الطبيعة", title: "الجبال الجنوبية", description: "فيديو محلي قصير للطبيعة الجبلية، جاهز للتشغيل باستخدام عناصر التحكم الأصلية.", videoLabel: "فيديو طبيعة الجبال الجنوبية", unavailable: "تعذر تشغيل فيديو الجبال المحلي. يظل الدليل متاحًا دون اتصال." }
+      }
     }
   },
   areas: [

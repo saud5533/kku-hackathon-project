@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 848" role="img" aria-label="Original illustrated poster of misty southern mountain ridges">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#91aaba"/>
+      <stop offset=".53" stop-color="#d5e0dc"/>
+      <stop offset="1" stop-color="#efd8ae"/>
+    </linearGradient>
+    <linearGradient id="ridge" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#527a70"/>
+      <stop offset="1" stop-color="#244c43"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="848" fill="url(#sky)"/>
+  <circle cx="355" cy="149" r="45" fill="#fff1b6" opacity=".9"/>
+  <path d="M0 482 73 350l61 67 62-122 58 101 57-86 59 112 62-67 48 127v366H0Z" fill="#7e9c8f" opacity=".75"/>
+  <path d="M0 585 80 426l68 89 69-144 69 119 58-101 66 141 70-84v402H0Z" fill="url(#ridge)"/>
+  <path d="M0 690 82 532l80 92 71-115 72 131 58-99 77 136 40-51v222H0Z" fill="#1d443c"/>
+  <path d="M-20 504c83-19 141-1 205 17 78 22 141 7 212-14 43-13 78-12 106-4" fill="none" stroke="#edf2ec" stroke-width="29" opacity=".55"/>
+  <path d="M-9 596c74-11 145 11 205 17 87 9 148-17 294 1" fill="none" stroke="#e7eee7" stroke-width="18" opacity=".43"/>
+  <path d="M87 722h184" stroke="#be7854" stroke-width="14" stroke-linecap="round"/>
+  <path d="M110 722v-68m138 68v-68" stroke="#765241" stroke-width="11"/>
+  <path d="M179 651v-55m-23 28 23-28 23 28" fill="none" stroke="#765241" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

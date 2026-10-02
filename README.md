@@ -55,7 +55,9 @@ Southern Food image slots live in `assets/foods/`. The gallery currently contain
 
 The local Discover Abha video is the supplied MP4 at `assets/abha-discover-video.mp4`, remains below 10 MB, and loads only after the visitor selects **Play preview**. Its native aspect ratio is preserved on mobile and desktop, with the local SVG poster shown while video metadata loads. To replace it, put a licensed MP4 below 10 MB in `assets/` and update `localMp4Src`, `videoWidth`, and `videoHeight` in `sample-data/data.js`. Matching caption files can be configured later if available.
 
-Run `node verify-media.js` to validate the local image paths, bilingual alt text, dimensions, Southern Food slots, and default offline video configuration.
+The separate Southern Mountains nature video appears directly below Terrace Trail in Natural Attractions. Its local MP4, poster, bilingual text, dimensions, and placement are stored in `media.naturalVideo` in `sample-data/data.js`. Keep replacement files local and below 10 MB, then update that metadata so its original aspect ratio and offline fallback remain correct.
+
+Run `node verify-media.js` to validate the local image paths, bilingual alt text, dimensions, Southern Food slots, and both offline video configurations.
 
 ## Project notes
 

@@ -24,6 +24,23 @@ file(data.media.discoverVideo.localMp4Src, "Discover local video");
 if (!Number.isFinite(data.media.discoverVideo.videoWidth) || !Number.isFinite(data.media.discoverVideo.videoHeight) || data.media.discoverVideo.videoWidth <= 0 || data.media.discoverVideo.videoHeight <= 0) fail("Discover local video needs positive dimensions.");
 if (fs.statSync(data.media.discoverVideo.localMp4Src).size > 10 * 1024 * 1024) fail("Discover local video must stay below 10 MB.");
 
+const naturalVideo = data.media.naturalVideo;
+if (!naturalVideo || naturalVideo.provider !== "mp4") fail("Natural Attractions video must be a local MP4.");
+file(naturalVideo.localMp4Src, "Natural Attractions local video");
+file(naturalVideo.posterSrc, "Natural Attractions poster");
+if (!bilingual(naturalVideo.posterAlt) || !naturalVideo.posterWidth || !naturalVideo.posterHeight) fail("Natural Attractions poster needs bilingual alt text and dimensions.");
+if (!Number.isFinite(naturalVideo.videoWidth) || !Number.isFinite(naturalVideo.videoHeight) || naturalVideo.videoWidth <= 0 || naturalVideo.videoHeight <= 0) fail("Natural Attractions video needs positive dimensions.");
+if (fs.statSync(naturalVideo.localMp4Src).size > 10 * 1024 * 1024) fail("Natural Attractions local video must stay below 10 MB.");
+if (naturalVideo.areaId !== "natural" || naturalVideo.afterDestinationId !== "terrace-trail") fail("Natural Attractions video needs the approved placement metadata.");
+["en", "ar"].forEach((language) => {
+  const content = naturalVideo.content?.[language];
+  if (!content?.eyebrow || !content.title || !content.description || !content.videoLabel || !content.unavailable) {
+    fail(`Natural Attractions video needs complete ${language} content.`);
+  }
+  const caption = naturalVideo.captions?.[language];
+  if (caption) file(caption, `Natural Attractions ${language} captions`);
+});
+
 if (!Array.isArray(data.areas) || !data.areas.length) fail("Guide needs at least one destination area.");
 const areaIds = new Set();
 data.areas.forEach((area) => {
@@ -71,4 +88,4 @@ if (!artStreet) fail("Art Street destination is missing.");
 if (artStreet.title?.en !== "Art Street" || artStreet.title?.ar !== "Art Street") fail("Art Street must use the English name in both language fields.");
 if (!bilingual(artStreet.description) || !bilingual(artStreet.visitorTip) || !bilingual(artStreet.tags)) fail("Art Street needs bilingual visitor content.");
 
-console.log(`Media and area contract passed for ${data.destinations.length} destination images, ${foodItems.length} Southern Food slots, and the local Discover video.`);
+console.log(`Media and area contract passed for ${data.destinations.length} destination images, ${foodItems.length} Southern Food slots, and both local videos.`);
