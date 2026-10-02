@@ -106,11 +106,6 @@ window.ABHA_VISITOR_GUIDE_DATA = {
       image: { src: "assets/destinations/row-coffee.jpg", width: 720, height: 1280, alt: { en: "Row Coffee night storefront and drive-through in Abha", ar: "واجهة وممر خدمة رو كوفي الليلي في أبها" } }
     },
     {
-      id: "juniper-table", area: "restaurants", location: { en: "Abha", ar: "أبها" }, title: { en: "Juniper Table", ar: "مائدة العرعر" },
-      description: { en: "A fictional local-taste stop for warm bread, aromatic coffee, and an unhurried table.", ar: "محطة خيالية للمذاق المحلي مع خبز دافئ وقهوة عطرية وجلسة غير مستعجلة." }, tags: { en: ["Local taste", "Relaxed"], ar: ["مذاق محلي", "استرخاء"] }, duration: 50, mapQuery: "Juniper Table, Abha, Saudi Arabia", gradient: "honey",
-      image: { src: "assets/destinations/juniper-table.svg", width: 800, height: 500, alt: { en: "Original illustration of coffee, warm bread, and juniper on a café table", ar: "رسم أصلي للقهوة والخبز الدافئ وأغصان العرعر على طاولة مقهى" } }
-    },
-    {
       id: "prime-cut", area: "restaurants", location: { en: "Abha", ar: "أبها" }, title: { en: "Prime Cut", ar: "Prime Cut" },
       description: { en: "A relaxed restaurant stop for a considered meal during a day around Abha.", ar: "محطة مطعم هادئة لوجبة متأنية خلال يوم في أبها." }, visitorTip: { en: "Consider checking current opening times before you go.", ar: "تحقق من أوقات العمل الحالية قبل الزيارة." }, tags: { en: ["Restaurant", "Meal stop"], ar: ["مطعم", "توقف للوجبة"] }, duration: 75, mapQuery: "Prime Cut Cafe Abha", gradient: "clay",
       image: { src: "assets/destinations/prime-cut.jpg", width: 720, height: 1280, alt: { en: "Prime Cut night storefront and dining area in Abha", ar: "واجهة ومنطقة جلوس برايم كت الليلية في أبها" } }
@@ -155,7 +150,7 @@ window.ABHA_VISITOR_GUIDE_DATA = {
       }
     ]
   },
-  examplePlan: ["asir-overlook", "heritage-courtyard", "juniper-table"],
+  examplePlan: ["asir-overlook", "heritage-courtyard"],
   localTips: {
     en: ["Check current local conditions before leaving for viewpoints.", "Allow a little extra driving time when mist settles over the highlands.", "Use Maps to confirm a destination before you leave, and keep water and a light layer with you."],
     ar: ["تحقق من الأحوال المحلية الحالية قبل التوجه إلى الإطلالات.", "اترك وقتًا إضافيًا قليلًا للقيادة عندما يستقر الضباب فوق المرتفعات.", "استخدم الخرائط لتأكيد وجهتك قبل المغادرة، واحتفظ بالماء وطبقة خفيفة معك."]
