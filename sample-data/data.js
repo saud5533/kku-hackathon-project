@@ -122,31 +122,31 @@ window.ABHA_VISITOR_GUIDE_DATA = {
         id: "areekah",
         title: "Areekah",
         description: { en: "A comforting southern dish of soft wheat and dates, often finished with honey or ghee.", ar: "طبق جنوبي دافئ من القمح الطري والتمر، ويُقدَّم غالبًا مع العسل أو السمن." },
-        image: { src: "assets/foods/areekah.svg", width: 800, height: 500, alt: { en: "Original illustration placeholder of Areekah with dates and honey", ar: "رسم توضيحي بديل للعريكة مع التمر والعسل" } }
+        image: { src: "assets/foods/areekah.jpg", width: 720, height: 1280, alt: { en: "Areekah topped with dates and honey", ar: "العريكة مغطاة بالتمر والعسل" } }
       },
       {
         id: "mabthouth",
         title: "Mabthouth",
         description: { en: "A southern wheat dish, gently cooked and served with a rich, warming character.", ar: "طبق جنوبي من القمح يُطهى بهدوء ويُقدَّم بطابع غني ودافئ." },
-        image: { src: "assets/foods/mabthouth.svg", width: 800, height: 500, alt: { en: "Original illustration placeholder of Mabthouth", ar: "رسم توضيحي بديل للمبثوث" } }
+        image: { src: "assets/foods/mabthouth.jpg", width: 734, height: 1279, alt: { en: "Mabthouth served with dates and a golden topping", ar: "المبثوث يُقدَّم مع التمر وإضافة ذهبية" } }
       },
       {
         id: "tasabee",
         title: "Tasabee",
         description: { en: "A familiar southern dish with a soft texture and comforting, home-style flavour.", ar: "طبق جنوبي مألوف بقوام طري ونكهة منزلية دافئة." },
-        image: { src: "assets/foods/tasabee.svg", width: 800, height: 500, alt: { en: "Original illustration placeholder of Tasabee", ar: "رسم توضيحي بديل للتصابيع" } }
+        image: { src: "assets/foods/tasabee.jpg", width: 900, height: 1600, alt: { en: "Tasabee served in a large dish with a golden topping", ar: "التصابيع تُقدَّم في طبق كبير مع إضافة ذهبية" } }
       },
       {
         id: "mashghouthah",
         title: "Mashghouthah",
         description: { en: "A hearty southern dish, enjoyed for its generous serving and warming flavours.", ar: "طبق جنوبي مشبع يُستمتع به لحصته السخية ونكهاته الدافئة." },
-        image: { src: "assets/foods/mashghouthah.svg", width: 800, height: 500, alt: { en: "Original illustration placeholder of Mashghouthah", ar: "رسم توضيحي بديل للمشغوثة" } }
+        image: { src: "assets/foods/mashghouthah.jpg", width: 651, height: 1280, alt: { en: "Mashghouthah in a pan with a golden finish", ar: "المشغوثة في مقلاة بلمسة ذهبية" } }
       },
       {
         id: "tannour-bread",
         title: "Tannour Bread",
         description: { en: "Fresh bread baked in a tannour oven, made to accompany a shared southern meal.", ar: "خبز طازج يُخبز في التنور ويُقدَّم لمرافقة وجبة جنوبية مشتركة." },
-        image: { src: "assets/foods/tannour-bread.svg", width: 800, height: 500, alt: { en: "Original illustration placeholder of Tannour Bread", ar: "رسم توضيحي بديل لخبز التنور" } }
+        image: { src: "assets/foods/tannour-bread.jpg", width: 589, height: 1280, alt: { en: "Basket of freshly baked Tannour Bread loaves", ar: "سلة من أرغفة خبز التنور الطازجة" } }
       }
     ]
   },

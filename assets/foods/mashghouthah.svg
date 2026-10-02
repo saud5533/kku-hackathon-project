@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Original illustration placeholder for Mashghouthah">
-  <rect width="800" height="500" fill="#e0cfae"/>
-  <path d="M0 354c137-41 267-43 400-9 136-34 267-31 400 9v146H0Z" fill="#315c45"/>
-  <path d="M253 306c0-102 65-166 147-166s147 64 147 166v54H253Z" fill="#76503b"/>
-  <path d="M274 303c0-80 54-133 126-133s126 53 126 133v34H274Z" fill="#b76c42"/>
-  <ellipse cx="400" cy="300" rx="98" ry="58" fill="#e0a845"/>
-  <circle cx="359" cy="278" r="19" fill="#f7e7bd"/><circle cx="414" cy="310" r="18" fill="#8d432b"/><circle cx="450" cy="271" r="15" fill="#587b7f"/>
-  <path d="M244 360h311" stroke="#efd8aa" stroke-width="14" stroke-linecap="round"/>
-</svg>
