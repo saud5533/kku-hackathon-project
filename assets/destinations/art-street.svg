@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Original illustration of a colourful outdoor art promenade in Abha">
+  <rect width="800" height="500" fill="#d9b883"/>
+  <path d="M0 306h800v194H0Z" fill="#71513e"/>
+  <path d="M0 381h800" stroke="#f0dbae" stroke-width="14" opacity=".7"/>
+  <path d="M67 81h198v231H67Z" fill="#406b59"/>
+  <path d="M535 56h204v256H535Z" fill="#b75e3d"/>
+  <path d="M91 107h150v170H91Z" fill="#ead497"/>
+  <path d="M562 82h150v205H562Z" fill="#e8d6b7"/>
+  <path d="M111 137h110v35H111Zm0 73h110v35H111Z" fill="#597b7f"/>
+  <path d="M582 115h111v41H582Zm0 80h111v41H582Z" fill="#d7804a"/>
+  <path d="m126 254 40-56 40 56m13 0 40-56 40 56m342-32 40-59 40 59m-91 31 40-59 40 59" fill="none" stroke="#efc679" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M306 171h183v163H306Z" fill="#f4e7c9"/>
+  <path d="M327 194h141v117H327Z" fill="#587b7f"/>
+  <path d="m352 288 45-69 46 69m-45-69v93" fill="none" stroke="#f7f0e5" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M352 219h91M352 288h91" stroke="#e08a4b" stroke-width="10"/>
+  <path d="M248 306 400 185l153 121" fill="#c96a2b"/>
+  <path d="M281 306 400 213l120 93" fill="#f6e8ca"/>
+  <path d="M0 418c119-36 221-28 311 23 87-47 188-55 301-20 64 21 126 22 188 1v78H0Z" fill="#315c45"/>
+  <circle cx="168" cy="374" r="26" fill="#e9c982"/>
+  <path d="M168 342v64m-32-32h64" stroke="#b75e3d" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="641" cy="370" r="27" fill="#e9c982"/>
+  <path d="m620 389 21-39 21 39m-21-39v52" fill="none" stroke="#587b7f" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

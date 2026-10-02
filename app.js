@@ -49,9 +49,7 @@
     theme: validTheme(safeRead(storageKeys.theme, null)),
     favorites,
     plan,
-    weather: validWeather.has(safeRead(storageKeys.weather, "sunny")) ? safeRead(storageKeys.weather, "sunny") : "sunny",
-    category: "all",
-    favoritesOnly: false
+    weather: validWeather.has(safeRead(storageKeys.weather, "sunny")) ? safeRead(storageKeys.weather, "sunny") : "sunny"
   };
 
   const elements = {
@@ -60,21 +58,22 @@
     heroImage: document.getElementById("hero-image"),
     discoverPlayer: document.getElementById("discover-player"),
     discoverNote: document.getElementById("discover-note"),
+    quickLinks: document.getElementById("quick-links"),
+    destinationAreas: document.getElementById("destination-areas"),
+    areaGrids: Object.fromEntries(data.areas.map((area) => [area.id, document.getElementById(`${area.id}-grid`)])),
+    favoritesGrid: document.getElementById("favorites-grid"),
+    favoriteCount: document.getElementById("favorite-count"),
+    tripPlanner: document.getElementById("trip-planner"),
     loadExample: document.getElementById("load-example"),
     clearPlan: document.getElementById("clear-plan"),
     weather: document.getElementById("weather-select"),
     weatherAdvice: document.getElementById("weather-advice"),
-    filterBar: document.getElementById("filter-bar"),
-    placeGrid: document.getElementById("place-grid"),
-    tripPlanner: document.getElementById("trip-planner"),
-    favorites: document.getElementById("favorites-toggle"),
-    favoriteCount: document.getElementById("favorite-count"),
-    results: document.getElementById("results-summary"),
+    localTips: document.getElementById("local-tips-list"),
     status: document.getElementById("status-message")
   };
 
   const text = (key) => data.copy[state.language][key] || key;
-  const englishNamedVenues = new Set(["hayz-coffee", "nair-coffee", "row-coffee", "prime-cut", "rwd-basil"]);
+  const englishNamedVenues = new Set(["hayz-coffee", "nair-coffee", "row-coffee", "prime-cut", "rwd-basil", "art-street"]);
   const getDestination = (id) => data.destinations.find((destination) => destination.id === id);
   const getDisplayTitle = (destination) => englishNamedVenues.has(destination.id) ? destination.title.en : destination.title[state.language];
   const mapUrl = (query) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
@@ -100,6 +99,7 @@
     elements.theme.setAttribute("aria-label", state.theme === "dark" ? text("switchLight") : text("switchTheme"));
     elements.language.textContent = state.language === "en" ? "العربية" : "English";
     elements.language.setAttribute("aria-label", state.language === "en" ? text("switchArabic") : text("switchEnglish"));
+    elements.quickLinks.setAttribute("aria-label", text("quickNavLabel"));
   }
 
   function renderStaticCopy() {
@@ -117,7 +117,7 @@
     elements.heroImage.height = hero.height;
 
     const video = data.media.discoverVideo;
-    elements.discoverNote.textContent = video.provider === "placeholder" ? text("discoverPlaceholder") : "";
+    elements.discoverNote.textContent = video.provider === "placeholder" ? text("discoverPlaceholder") : text("discoverPlaceholder");
     elements.discoverPlayer.innerHTML = `
       <div class="video-frame media-fallback">
         <img class="discover-poster" src="${safeText(video.posterSrc)}" alt="${safeText(video.posterAlt[state.language])}" width="${video.posterWidth}" height="${video.posterHeight}">
@@ -127,8 +127,7 @@
         </button>
       </div>
     `;
-    const poster = elements.discoverPlayer.querySelector("img");
-    poster.addEventListener("error", showImageFallback, { once: true });
+    elements.discoverPlayer.querySelector("img").addEventListener("error", showImageFallback, { once: true });
   }
 
   function playDiscoverVideo() {
@@ -154,6 +153,12 @@
     setStatus(text("discoverUnavailable"));
   }
 
+  function renderQuickLinks() {
+    elements.quickLinks.innerHTML = data.areas.map((area) => `
+      <a class="quick-link" href="#${safeText(area.targetId)}">${safeText(area.title[state.language])}</a>
+    `).join("");
+  }
+
   function renderWeather() {
     elements.weather.innerHTML = Object.entries(data.weather).map(([id, detail]) => (
       `<option value="${id}" ${state.weather === id ? "selected" : ""}>${detail.label[state.language]}</option>`
@@ -161,75 +166,73 @@
     elements.weatherAdvice.textContent = data.weather[state.weather].advice[state.language];
   }
 
-  function renderFilters() {
-    const filters = [{ id: "all", label: text("all") }, ...data.categories.map((category) => ({ id: category.id, label: category.label[state.language] }))];
-    elements.filterBar.innerHTML = filters.map((filter) => `
-      <button class="filter-chip ${state.category === filter.id ? "is-active" : ""}" type="button" data-category="${filter.id}" aria-pressed="${state.category === filter.id}">
-        ${filter.label}
-      </button>
-    `).join("");
+  function renderLocalTips() {
+    elements.localTips.innerHTML = data.localTips[state.language].map((tip) => `<li>${safeText(tip)}</li>`).join("");
   }
 
-  function renderFavoritesToggle() {
-    elements.favoriteCount.textContent = state.favorites.length;
-    elements.favorites.classList.toggle("is-active", state.favoritesOnly);
-    elements.favorites.setAttribute("aria-pressed", String(state.favoritesOnly));
-    elements.favorites.setAttribute("aria-label", state.favoritesOnly ? text("showAllPlaces") : text("showOnlyFavorites"));
+  function renderDestinationCard(destination) {
+    const isFavorite = state.favorites.includes(destination.id);
+    const inPlan = state.plan.includes(destination.id);
+    const title = getDisplayTitle(destination);
+    const visitorTip = destination.visitorTip?.[state.language];
+    const tags = destination.tags[state.language].map((tag) => `<span>${safeText(tag)}</span>`).join("");
+    return `
+      <article class="place-card">
+        <div class="place-scene scene-${destination.gradient} media-fallback">
+          <img class="place-image" src="${safeText(destination.image.src)}" alt="${safeText(destination.image.alt[state.language])}" width="${destination.image.width}" height="${destination.image.height}" loading="lazy" decoding="async">
+          <div class="media-art-fallback" aria-hidden="true"></div>
+        </div>
+        <div class="place-card-body">
+          <div class="place-card-topline">
+            <p class="location-label">${safeText(destination.location[state.language])}</p>
+            <button class="heart-button ${isFavorite ? "is-saved" : ""}" type="button" data-action="favorite" data-id="${destination.id}" aria-label="${isFavorite ? text("removeFavorite") : text("addFavorite")}: ${safeText(title)}" aria-pressed="${isFavorite}">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 20-1.6-1.45C4.7 13.4 1 10.04 1 6.9 1 4.34 3 2.35 5.55 2.35c1.45 0 2.84.68 3.75 1.76a3.57 3.57 0 0 1 5.4 0 4.92 4.92 0 0 1 3.75-1.76C21 2.35 23 4.34 23 6.9c0 3.14-3.7 6.5-9.4 11.66L12 20Z"/></svg>
+            </button>
+          </div>
+          <h3>${safeText(title)}</h3>
+          <p class="place-description">${safeText(destination.description[state.language])}</p>
+          ${visitorTip ? `<p class="visitor-tip"><strong>${text("visitorTip")}:</strong> ${safeText(visitorTip)}</p>` : ""}
+          <div class="tag-list">${tags}</div>
+          <div class="place-meta"><span>${destination.duration} ${text("duration")}</span><span>${inPlan ? text("inPlan") : ""}</span></div>
+          <div class="card-actions">
+            <button class="card-action plan-action ${inPlan ? "is-selected" : ""}" type="button" data-action="plan" data-id="${destination.id}">${inPlan ? text("removeFromPlan") : text("addToPlan")}</button>
+            <a class="card-action maps-action" href="${mapUrl(destination.mapQuery)}" target="_blank" rel="noopener noreferrer" aria-label="${text("openMaps")}: ${safeText(title)}">${text("openMaps")}</a>
+          </div>
+        </div>
+      </article>
+    `;
   }
 
-  function renderPlaces() {
-    const visiblePlaces = data.destinations.filter((destination) => {
-      const inCategory = state.category === "all" || destination.category === state.category;
-      const inFavorites = !state.favoritesOnly || state.favorites.includes(destination.id);
-      return inCategory && inFavorites;
+  function bindCardImageFallbacks(scope) {
+    scope.querySelectorAll(".place-image").forEach((image) => image.addEventListener("error", showImageFallback, { once: true }));
+  }
+
+  function renderDestinationAreas() {
+    data.areas.forEach((area) => {
+      const grid = elements.areaGrids[area.id];
+      const places = data.destinations.filter((destination) => destination.area === area.id);
+      grid.innerHTML = places.map(renderDestinationCard).join("");
+      bindCardImageFallbacks(grid);
     });
+  }
 
-    elements.results.textContent = interpolate(text("results"), { count: visiblePlaces.length });
+  function renderFavorites() {
+    const savedDestinations = state.favorites.map(getDestination).filter(Boolean);
+    elements.favoriteCount.textContent = savedDestinations.length;
+    elements.favoriteCount.setAttribute("aria-label", `${savedDestinations.length} ${text("favoritesTitle")}`);
 
-    if (!visiblePlaces.length) {
-      elements.placeGrid.innerHTML = `
+    if (!savedDestinations.length) {
+      elements.favoritesGrid.innerHTML = `
         <div class="empty-state">
-          <h3>${text("noPlaces")}</h3>
-          <p>${text("noPlacesHint")}</p>
-          <button class="button button-quiet" type="button" data-action="show-all">${text("showAll")}</button>
+          <h3>${text("favoritesEmptyTitle")}</h3>
+          <p>${text("favoritesEmptyHint")}</p>
         </div>
       `;
       return;
     }
 
-    elements.placeGrid.innerHTML = visiblePlaces.map((destination) => {
-      const isFavorite = state.favorites.includes(destination.id);
-      const inPlan = state.plan.includes(destination.id);
-      const title = getDisplayTitle(destination);
-      const visitorTip = destination.visitorTip?.[state.language];
-      const tags = destination.tags[state.language].map((tag) => `<span>${tag}</span>`).join("");
-      return `
-        <article class="place-card">
-          <div class="place-scene scene-${destination.gradient} media-fallback">
-            <img class="place-image" src="${safeText(destination.image.src)}" alt="${safeText(destination.image.alt[state.language])}" width="${destination.image.width}" height="${destination.image.height}" loading="lazy" decoding="async">
-            <div class="media-art-fallback" aria-hidden="true"></div>
-          </div>
-          <div class="place-card-body">
-            <div class="place-card-topline">
-              <p class="location-label">${destination.location[state.language]}</p>
-              <button class="heart-button ${isFavorite ? "is-saved" : ""}" type="button" data-action="favorite" data-id="${destination.id}" aria-label="${isFavorite ? text("removeFavorite") : text("addFavorite")}" aria-pressed="${isFavorite}">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 20-1.6-1.45C4.7 13.4 1 10.04 1 6.9 1 4.34 3 2.35 5.55 2.35c1.45 0 2.84.68 3.75 1.76a3.57 3.57 0 0 1 5.4 0 4.92 4.92 0 0 1 3.75-1.76C21 2.35 23 4.34 23 6.9c0 3.14-3.7 6.5-9.4 11.66L12 20Z"/></svg>
-              </button>
-            </div>
-            <h3>${title}</h3>
-            <p class="place-description">${destination.description[state.language]}</p>
-            ${visitorTip ? `<p class="visitor-tip"><strong>${text("visitorTip")}:</strong> ${safeText(visitorTip)}</p>` : ""}
-            <div class="tag-list">${tags}</div>
-            <div class="place-meta"><span>${destination.duration} ${text("duration")}</span><span>${inPlan ? text("inPlan") : ""}</span></div>
-            <div class="card-actions">
-              <button class="card-action plan-action ${inPlan ? "is-selected" : ""}" type="button" data-action="plan" data-id="${destination.id}">${inPlan ? text("removeFromPlan") : text("addToPlan")}</button>
-              <a class="card-action maps-action" href="${mapUrl(destination.mapQuery)}" target="_blank" rel="noopener noreferrer" aria-label="${text("openMaps")}: ${title}">${text("openMaps")}</a>
-            </div>
-          </div>
-        </article>
-      `;
-    }).join("");
-    elements.placeGrid.querySelectorAll(".place-image").forEach((image) => image.addEventListener("error", showImageFallback, { once: true }));
+    elements.favoritesGrid.innerHTML = savedDestinations.map(renderDestinationCard).join("");
+    bindCardImageFallbacks(elements.favoritesGrid);
   }
 
   function renderPlanner() {
@@ -255,15 +258,15 @@
           return `
             <li class="plan-stop">
               <span class="stop-number" aria-hidden="true">${index + 1}</span>
-              <div class="stop-copy"><strong>${title}</strong><span>${destination.duration} ${text("duration")} · ${destination.location[state.language]}</span></div>
+              <div class="stop-copy"><strong>${safeText(title)}</strong><span>${destination.duration} ${text("duration")} · ${safeText(destination.location[state.language])}</span></div>
               <div class="stop-actions">
-                <button type="button" data-action="move" data-id="${destination.id}" data-direction="up" aria-label="${text("moveUp")}: ${title}" ${index === 0 ? "disabled" : ""}>
+                <button type="button" data-action="move" data-id="${destination.id}" data-direction="up" aria-label="${text("moveUp")}: ${safeText(title)}" ${index === 0 ? "disabled" : ""}>
                   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 15 7-7 7 7"/></svg>
                 </button>
-                <button type="button" data-action="move" data-id="${destination.id}" data-direction="down" aria-label="${text("moveDown")}: ${title}" ${index === planDestinations.length - 1 ? "disabled" : ""}>
+                <button type="button" data-action="move" data-id="${destination.id}" data-direction="down" aria-label="${text("moveDown")}: ${safeText(title)}" ${index === planDestinations.length - 1 ? "disabled" : ""}>
                   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 9 7 7 7-7"/></svg>
                 </button>
-                <button type="button" data-action="remove-plan" data-id="${destination.id}" aria-label="${text("remove")}: ${title}">
+                <button type="button" data-action="remove-plan" data-id="${destination.id}" aria-label="${text("remove")}: ${safeText(title)}">
                   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
                 </button>
               </div>
@@ -278,11 +281,12 @@
     applyDocumentPreferences();
     renderStaticCopy();
     renderMedia();
-    renderWeather();
-    renderFilters();
-    renderFavoritesToggle();
-    renderPlaces();
+    renderQuickLinks();
+    renderDestinationAreas();
     renderPlanner();
+    renderFavorites();
+    renderWeather();
+    renderLocalTips();
     elements.clearPlan.disabled = state.plan.length === 0;
   }
 
@@ -353,28 +357,18 @@
     render();
   });
 
-  elements.favorites.addEventListener("click", () => {
-    state.favoritesOnly = !state.favoritesOnly;
-    render();
-  });
-
-  elements.filterBar.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-category]");
-    if (!button) return;
-    state.category = button.dataset.category;
-    render();
-  });
-
-  elements.placeGrid.addEventListener("click", (event) => {
+  elements.destinationAreas.addEventListener("click", (event) => {
     const button = event.target.closest("button[data-action]");
     if (!button) return;
     if (button.dataset.action === "favorite") toggleFavorite(button.dataset.id);
     if (button.dataset.action === "plan") togglePlan(button.dataset.id);
-    if (button.dataset.action === "show-all") {
-      state.category = "all";
-      state.favoritesOnly = false;
-      render();
-    }
+  });
+
+  elements.favoritesGrid.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-action]");
+    if (!button) return;
+    if (button.dataset.action === "favorite") toggleFavorite(button.dataset.id);
+    if (button.dataset.action === "plan") togglePlan(button.dataset.id);
   });
 
   elements.tripPlanner.addEventListener("click", (event) => {

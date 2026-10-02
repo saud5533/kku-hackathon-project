@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#guide">Skip to destinations</a>
+  <a class="skip-link" href="#quick-explore">Skip to destinations</a>
 
   <header class="site-header">
     <div class="page-shell header-content">
@@ -38,7 +38,7 @@
           <h1 data-i18n="heroTitle">Find your rhythm in the highlands.</h1>
           <p class="hero-description" data-i18n="heroDescription">Choose a few special stops across Abha and Al Namas, then keep your day beautifully simple.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#guide" data-i18n="explorePlaces">Explore places</a>
+            <a class="button button-primary" href="#quick-explore" data-i18n="explorePlaces">Explore places</a>
             <button class="button button-quiet" type="button" id="load-example" data-i18n="loadExample">Load example plan</button>
           </div>
           <p class="local-note" data-i18n="offlineNote">Works offline · Your choices stay on this device</p>
@@ -49,19 +49,81 @@
       </div>
     </section>
 
-    <section class="discover-section" aria-labelledby="discover-title">
+    <section class="discover-section anchor-target" aria-labelledby="discover-title">
       <div class="page-shell discover-grid">
         <div class="discover-copy">
           <p class="eyebrow" data-i18n="discoverEyebrow">See the landscape</p>
           <h2 id="discover-title" data-i18n="discoverTitle">Discover Abha</h2>
-          <p data-i18n="discoverDescription">A place for a short local video of Abha’s misty highlands when you are ready to add one.</p>
-          <p class="discover-note" id="discover-note" data-i18n="discoverPlaceholder">This offline sample includes a poster, not a video file. Add a licensed local MP4 to enable playback.</p>
+          <p data-i18n="discoverDescription">Watch a short local video of Abha’s misty highlands, ready when you are.</p>
+          <p class="discover-note" id="discover-note" data-i18n="discoverPlaceholder">A short local video is ready to play when you select the preview.</p>
         </div>
         <div class="discover-player" id="discover-player" aria-live="polite"></div>
       </div>
     </section>
 
-    <section class="page-shell trip-section" aria-labelledby="trip-title">
+    <section class="quick-explore-section anchor-target" id="quick-explore" aria-labelledby="quick-title">
+      <div class="page-shell">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow" data-i18n="quickEyebrow">Choose your next stop</p>
+            <h2 id="quick-title" data-i18n="quickTitle">Explore by area</h2>
+          </div>
+        </div>
+        <nav class="quick-link-list" id="quick-links" aria-label="Quick destination shortcuts"></nav>
+      </div>
+    </section>
+
+    <div class="destination-areas" id="destination-areas">
+      <section class="destination-section anchor-target" id="natural-attractions" aria-labelledby="natural-title">
+        <div class="page-shell">
+          <div class="section-heading area-heading">
+            <div>
+              <p class="eyebrow" data-i18n="naturalEyebrow">Fresh air and wide views</p>
+              <h2 id="natural-title" data-i18n="naturalTitle">Natural Attractions</h2>
+            </div>
+          </div>
+          <div class="place-grid" id="natural-grid"></div>
+        </div>
+      </section>
+
+      <section class="destination-section destination-section-soft anchor-target" id="cultural-arts" aria-labelledby="culture-title">
+        <div class="page-shell">
+          <div class="section-heading area-heading">
+            <div>
+              <p class="eyebrow" data-i18n="cultureEyebrow">Stories, colour, and craft</p>
+              <h2 id="culture-title" data-i18n="cultureTitle">Cultural &amp; Arts</h2>
+            </div>
+          </div>
+          <div class="place-grid" id="culture-grid"></div>
+        </div>
+      </section>
+
+      <section class="destination-section anchor-target" id="cafes" aria-labelledby="cafes-title">
+        <div class="page-shell">
+          <div class="section-heading area-heading">
+            <div>
+              <p class="eyebrow" data-i18n="cafesEyebrow">A gentle coffee pause</p>
+              <h2 id="cafes-title" data-i18n="cafesTitle">Cafes</h2>
+            </div>
+          </div>
+          <div class="place-grid" id="cafes-grid"></div>
+        </div>
+      </section>
+
+      <section class="destination-section destination-section-soft anchor-target" id="restaurants" aria-labelledby="restaurants-title">
+        <div class="page-shell">
+          <div class="section-heading area-heading">
+            <div>
+              <p class="eyebrow" data-i18n="restaurantsEyebrow">Make room for a meal</p>
+              <h2 id="restaurants-title" data-i18n="restaurantsTitle">Restaurants</h2>
+            </div>
+          </div>
+          <div class="place-grid" id="restaurants-grid"></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="page-shell trip-section anchor-target" id="trip-planner-section" aria-labelledby="trip-title">
       <div class="section-heading heading-row">
         <div>
           <p class="eyebrow" data-i18n="yourDayEyebrow">Your little itinerary</p>
@@ -69,8 +131,24 @@
         </div>
         <button class="text-button" type="button" id="clear-plan" data-i18n="clearPlan">Clear plan</button>
       </div>
-      <div class="trip-layout">
-        <div class="trip-planner" id="trip-planner" aria-live="polite"></div>
+      <div class="trip-planner" id="trip-planner" aria-live="polite"></div>
+    </section>
+
+    <section class="favorites-section anchor-target" id="favorites" aria-labelledby="favorites-title">
+      <div class="page-shell">
+        <div class="section-heading heading-row">
+          <div>
+            <p class="eyebrow" data-i18n="favoritesEyebrow">Saved for later</p>
+            <h2 id="favorites-title" data-i18n="favoritesTitle">Favorites</h2>
+          </div>
+          <span class="favorites-count" id="favorite-count" aria-live="polite">0</span>
+        </div>
+        <div class="place-grid" id="favorites-grid"></div>
+      </div>
+    </section>
+
+    <section class="page-shell local-guidance-section anchor-target" id="local-guidance" aria-label="Weather and local tips">
+      <div class="guidance-layout">
         <aside class="weather-card" aria-labelledby="weather-title">
           <div class="weather-icon" aria-hidden="true">
             <svg viewBox="0 0 48 48" focusable="false"><circle cx="24" cy="24" r="8"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6M10 10l4 4M34 34l4 4M38 10l-4 4M14 34l-4 4"/></svg>
@@ -84,25 +162,12 @@
           <p class="weather-advice" id="weather-advice"></p>
           <p class="weather-disclaimer" data-i18n="weatherDisclaimer">Planning guidance only — check current local conditions before leaving.</p>
         </aside>
-      </div>
-    </section>
 
-    <section class="guide-section" id="guide" aria-labelledby="guide-title">
-      <div class="page-shell">
-        <div class="section-heading catalog-heading">
-          <div>
-            <p class="eyebrow" data-i18n="guideEyebrow">Make room for detours</p>
-            <h2 id="guide-title" data-i18n="guideTitle">Places worth keeping close</h2>
-          </div>
-          <button class="favorites-toggle" type="button" id="favorites-toggle" aria-pressed="false">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 20-1.6-1.45C4.7 13.4 1 10.04 1 6.9 1 4.34 3 2.35 5.55 2.35c1.45 0 2.84.68 3.75 1.76a3.57 3.57 0 0 1 5.4 0 4.92 4.92 0 0 1 3.75-1.76C21 2.35 23 4.34 23 6.9c0 3.14-3.7 6.5-9.4 11.66L12 20Z"/></svg>
-            <span data-i18n="showFavorites">Favorites</span>
-            <span class="count-pill" id="favorite-count">0</span>
-          </button>
-        </div>
-        <div class="filter-bar" id="filter-bar" aria-label="Place categories"></div>
-        <p class="results-summary" id="results-summary" aria-live="polite"></p>
-        <div class="place-grid" id="place-grid"></div>
+        <aside class="local-tips-card" aria-labelledby="local-tips-title">
+          <p class="eyebrow" data-i18n="localTipsEyebrow">Know before you go</p>
+          <h2 id="local-tips-title" data-i18n="localTipsTitle">Local tips</h2>
+          <ul id="local-tips-list"></ul>
+        </aside>
       </div>
     </section>
   </main>
