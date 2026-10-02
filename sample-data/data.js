@@ -49,12 +49,7 @@ window.ABHA_VISITOR_GUIDE_DATA = {
   ],
   destinations: [
     {
-      id: "cloudline-park", area: "natural", location: { en: "Abha", ar: "أبها" }, title: { en: "Cloudline Park", ar: "منتزه خط السحاب" },
-      description: { en: "A gentle hillside loop with cedar shade, quiet benches, and wide valley air.", ar: "مسار هادئ على التلال بظلال العرعر ومقاعد مريحة وهواء الوادي الواسع." }, tags: { en: ["Easy walk", "Morning"], ar: ["مشي سهل", "الصباح"] }, duration: 75, mapQuery: "Cloudline Park, Abha, Saudi Arabia", gradient: "sage",
-      image: { src: "assets/destinations/cloudline-park.svg", width: 800, height: 500, alt: { en: "Original illustration of a cedar-lined path through misty Abha hills", ar: "رسم أصلي لمسار تحيط به أشجار العرعر في تلال أبها الضبابية" } }
-    },
-    {
-      id: "al-namas-overlook", area: "natural", location: { en: "Al Namas", ar: "النماص" }, title: { en: "Al Namas Overlook", ar: "إطلالة النماص" },
+      id: "al-namas-overlook", area: "natural", location: { en: "Al Namas", ar: "النماص" }, title: { en: "Al Namas Overlook", ar: "جمال الطبيعة" },
       description: { en: "A slow, scenic stop for highland views, cool breezes, and a long golden-hour pause.", ar: "توقّف هادئ لإطلالات المرتفعات والنسيم العليل ولحظات الغروب الطويلة." }, tags: { en: ["Golden hour", "Scenic drive"], ar: ["وقت الغروب", "رحلة بالسيارة"] }, duration: 90, mapQuery: "Al Namas Overlook, Al Namas, Saudi Arabia", gradient: "lavender",
       image: { src: "assets/destinations/al-namas-overlook.svg", width: 800, height: 500, alt: { en: "Original illustration of a golden view from an Al Namas mountain overlook", ar: "رسم أصلي لإطلالة ذهبية من مرتفعات النماص" } }
     },
@@ -143,7 +138,7 @@ window.ABHA_VISITOR_GUIDE_DATA = {
       }
     ]
   },
-  examplePlan: ["cloudline-park", "juniper-table", "al-namas-overlook"],
+  examplePlan: ["terrace-trail", "juniper-table", "al-namas-overlook"],
   localTips: {
     en: ["Check current local conditions before leaving for viewpoints.", "Allow a little extra driving time when mist settles over the highlands.", "Use Maps to confirm a destination before you leave, and keep water and a light layer with you."],
     ar: ["تحقق من الأحوال المحلية الحالية قبل التوجه إلى الإطلالات.", "اترك وقتًا إضافيًا قليلًا للقيادة عندما يستقر الضباب فوق المرتفعات.", "استخدم الخرائط لتأكيد وجهتك قبل المغادرة، واحتفظ بالماء وطبقة خفيفة معك."]
