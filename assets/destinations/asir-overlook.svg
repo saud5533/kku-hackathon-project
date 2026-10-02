@@ -1,27 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Original illustration of misty mountain ridges in the Asir region">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Warm-toned mountain ridges in the Asir region under a pale sky">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#b9c8d7"/>
-      <stop offset=".6" stop-color="#dce4df"/>
-      <stop offset="1" stop-color="#f2ddbd"/>
+      <stop stop-color="#94a7ad"/>
+      <stop offset=".56" stop-color="#cbbda4"/>
+      <stop offset="1" stop-color="#d5a36e"/>
     </linearGradient>
     <linearGradient id="ridge" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#496b66"/>
-      <stop offset="1" stop-color="#254b42"/>
+      <stop stop-color="#715844"/>
+      <stop offset="1" stop-color="#3a2d27"/>
     </linearGradient>
     <linearGradient id="near" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#305d52"/>
-      <stop offset="1" stop-color="#173d36"/>
+      <stop stop-color="#4b3930"/>
+      <stop offset="1" stop-color="#211a18"/>
     </linearGradient>
   </defs>
   <rect width="800" height="500" fill="url(#sky)"/>
-  <circle cx="627" cy="110" r="49" fill="#fff2bf" opacity=".9"/>
-  <path d="M0 333 120 182l98 116 110-155 115 143 108-100 119 143 130-116v187H0Z" fill="#77968b" opacity=".7"/>
+  <rect width="800" height="500" fill="#4b3023" opacity=".08"/>
+  <circle cx="627" cy="110" r="49" fill="#f4dfaa" opacity=".72"/>
+  <path d="M0 333 120 182l98 116 110-155 115 143 108-100 119 143 130-116v187H0Z" fill="#9b7960" opacity=".72"/>
   <path d="M0 395 125 258l91 88 129-151 110 126 101-91 133 151 111-98v217H0Z" fill="url(#ridge)"/>
   <path d="M0 458 164 328l95 74 121-126 116 111 91-72 213 136v49H0Z" fill="url(#near)"/>
-  <path d="M-28 338c103-24 178-12 252 9 102 29 195 10 280-16 95-29 175-19 324 11" fill="none" stroke="#f5f5ed" stroke-width="31" opacity=".52"/>
-  <path d="M43 390c123-19 214 10 306 22 109 14 196-16 432-6" fill="none" stroke="#e8eee7" stroke-width="18" opacity=".42"/>
-  <path d="M100 447h242" stroke="#bf7856" stroke-width="15" stroke-linecap="round"/>
-  <path d="M130 447v-68m182 68v-68" stroke="#765444" stroke-width="12"/>
-  <path d="M221 376v-53m-25 26 25-30 25 30" fill="none" stroke="#765444" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M-28 338c103-24 178-12 252 9 102 29 195 10 280-16 95-29 175-19 324 11" fill="none" stroke="#e7d5b8" stroke-width="31" opacity=".34"/>
+  <path d="M43 390c123-19 214 10 306 22 109 14 196-16 432-6" fill="none" stroke="#d9c8ad" stroke-width="18" opacity=".24"/>
+  <path d="M100 447h242" stroke="#c18356" stroke-width="15" stroke-linecap="round"/>
+  <path d="M130 447v-68m182 68v-68" stroke="#6a4432" stroke-width="12"/>
+  <path d="M221 376v-53m-25 26 25-30 25 30" fill="none" stroke="#6a4432" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

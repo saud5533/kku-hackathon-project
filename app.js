@@ -222,7 +222,7 @@
           <p class="place-video-error" hidden>${safeText(video.unavailable?.[state.language])}</p>` : `
           <img class="place-image" src="${safeText(destination.image.src)}" alt="${safeText(destination.image.alt[state.language])}" width="${destination.image.width}" height="${destination.image.height}" loading="lazy" decoding="async">`;
     return `
-      <article class="place-card">
+      <article class="place-card ${destination.id === "asir-overlook" ? "place-card--asir" : ""}">
         <div class="place-scene scene-${destination.gradient} media-fallback ${hasVideo ? "has-video" : ""}"${hasVideo ? ` style="--place-video-aspect-ratio: ${video.videoWidth} / ${video.videoHeight}"` : ""}>
           ${media}
           <div class="media-art-fallback" aria-hidden="true"></div>
