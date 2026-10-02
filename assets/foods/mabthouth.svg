@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Original illustration placeholder for Mabthouth">
+  <rect width="800" height="500" fill="#e5d1aa"/>
+  <path d="M0 354c141-39 265-41 400-8 135-33 264-30 400 8v146H0Z" fill="#315c45"/>
+  <ellipse cx="400" cy="306" rx="239" ry="94" fill="#895033"/>
+  <ellipse cx="400" cy="286" rx="215" ry="76" fill="#d58b48"/>
+  <path d="M310 285c9-66 51-105 91-105 45 0 78 40 89 104-24 29-58 43-91 43s-66-14-89-42Z" fill="#8a442a"/>
+  <path d="M337 249c27 15 49 16 69 2m-60 42c28 14 56 14 84-1" fill="none" stroke="#f5d181" stroke-width="13" stroke-linecap="round"/>
+  <circle cx="262" cy="291" r="20" fill="#f2bd61"/><circle cx="530" cy="286" r="19" fill="#f2bd61"/>
+</svg>

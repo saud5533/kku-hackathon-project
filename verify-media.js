@@ -47,13 +47,13 @@ data.areas.forEach((area) => {
 });
 
 const foodItems = data.southernFood?.items;
-const expectedFoodIds = ["areekah", "aseedah", "haneeth", "mandi", "maghsh", "mifa-bread"];
-if (!Array.isArray(foodItems) || foodItems.length !== expectedFoodIds.length) fail("Southern Food gallery must contain six food cards.");
+const expectedFoodIds = ["areekah", "mabthouth", "tasabee", "mashghouthah", "tannour-bread"];
+if (!Array.isArray(foodItems) || foodItems.length !== expectedFoodIds.length) fail("Southern Food gallery must contain five food cards.");
 const foodIds = new Set();
 foodItems.forEach((food) => {
   if (!food.id || foodIds.has(food.id)) fail(`Southern Food id must be unique: ${food.id || "missing"}`);
   foodIds.add(food.id);
-  if (!bilingual(food.title) || !bilingual(food.description)) fail(`${food.id} needs bilingual title and description.`);
+  if (typeof food.title !== "string" || !food.title.trim() || !bilingual(food.description)) fail(`${food.id} needs an English title and bilingual description.`);
   if (!food.image) fail(`${food.id} is missing image metadata.`);
   file(food.image.src, `${food.id} food image`);
   if (!bilingual(food.image.alt) || !food.image.width || !food.image.height) {

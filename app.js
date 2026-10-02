@@ -226,7 +226,7 @@
           <div class="media-art-fallback" aria-hidden="true"></div>
         </div>
         <div class="food-card-body">
-          <h3>${safeText(food.title.en)}</h3>
+          <h3>${safeText(food.title)}</h3>
           <p>${safeText(food.description[state.language])}</p>
         </div>
       </article>

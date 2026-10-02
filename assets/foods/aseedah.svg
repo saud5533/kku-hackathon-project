@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Original illustration placeholder for Aseedah">
-  <rect width="800" height="500" fill="#d7c6a8"/>
-  <path d="M0 357c150-40 266-47 400-12 133-35 270-29 400 12v143H0Z" fill="#587b7f"/>
-  <ellipse cx="400" cy="306" rx="218" ry="92" fill="#a9653d"/>
-  <path d="M271 301c16-99 83-151 129-151s113 52 129 151" fill="#f1c870"/>
-  <path d="M300 286c29-34 55 26 89-4s62-4 91 1 50-14 50-14" fill="none" stroke="#d38238" stroke-width="17" stroke-linecap="round"/>
-  <circle cx="400" cy="224" r="25" fill="#7a4429"/>
-  <path d="M348 183c18-21 36-30 52-30s34 9 52 30" fill="none" stroke="#f8eac3" stroke-width="12" stroke-linecap="round"/>
-</svg>

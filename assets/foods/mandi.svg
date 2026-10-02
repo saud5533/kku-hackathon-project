@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Original illustration placeholder for Mandi">
-  <rect width="800" height="500" fill="#e3cfaa"/>
-  <path d="M0 355c139-34 265-40 400-7 135-33 266-27 400 7v145H0Z" fill="#315c45"/>
-  <ellipse cx="400" cy="299" rx="250" ry="101" fill="#814b30"/>
-  <ellipse cx="400" cy="278" rx="230" ry="82" fill="#f2cd72"/>
-  <path d="m244 286 40-27 40 31 42-43 42 44 41-40 44 39 40-24" fill="none" stroke="#e1a746" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M372 236c-2-46 31-74 69-61 38 13 50 57 26 92-22 33-75 25-95-31Z" fill="#7b3928"/>
-  <path d="m392 222 53 45m-5-56-44 57" stroke="#efb662" stroke-width="10" stroke-linecap="round"/>
-</svg>

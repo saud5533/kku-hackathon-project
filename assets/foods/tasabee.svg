@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Original illustration placeholder for Tasabee">
+  <rect width="800" height="500" fill="#d8c6a5"/>
+  <path d="M0 358c130-36 264-46 400-9 137-37 268-27 400 9v142H0Z" fill="#587b7f"/>
+  <ellipse cx="400" cy="303" rx="237" ry="94" fill="#794a32"/>
+  <ellipse cx="400" cy="284" rx="215" ry="75" fill="#f0c66d"/>
+  <path d="M283 274c31-64 72-70 94-16 19-62 63-66 85-10 21-57 63-52 88 12" fill="none" stroke="#c66e37" stroke-width="26" stroke-linecap="round"/>
+  <path d="M298 328h203" stroke="#f7e9c5" stroke-width="15" stroke-linecap="round"/>
+  <circle cx="597" cy="255" r="28" fill="#315c45"/><circle cx="574" cy="301" r="19" fill="#d08237"/>
+</svg>

@@ -113,39 +113,33 @@ window.ABHA_VISITOR_GUIDE_DATA = {
     items: [
       {
         id: "areekah",
-        title: { en: "Areekah", ar: "Areekah" },
+        title: "Areekah",
         description: { en: "A comforting southern dish of soft wheat and dates, often finished with honey or ghee.", ar: "طبق جنوبي دافئ من القمح الطري والتمر، ويُقدَّم غالبًا مع العسل أو السمن." },
-        image: { src: "assets/foods/areekah.svg", width: 800, height: 500, alt: { en: "Original illustration of Areekah with dates and honey", ar: "رسم أصلي للعريكة مع التمر والعسل" } }
+        image: { src: "assets/foods/areekah.svg", width: 800, height: 500, alt: { en: "Original illustration placeholder of Areekah with dates and honey", ar: "رسم توضيحي بديل للعريكة مع التمر والعسل" } }
       },
       {
-        id: "aseedah",
-        title: { en: "Aseedah", ar: "Aseedah" },
-        description: { en: "A smooth, hearty wheat dish enjoyed warm, with a rich topping that brings the table together.", ar: "طبق قمح ناعم ومشبع يُستمتع به دافئًا مع إضافات غنية تجمع الجالسين حول المائدة." },
-        image: { src: "assets/foods/aseedah.svg", width: 800, height: 500, alt: { en: "Original illustration of a warm serving of Aseedah", ar: "رسم أصلي لطبق عصيدة دافئ" } }
+        id: "mabthouth",
+        title: "Mabthouth",
+        description: { en: "A southern wheat dish, gently cooked and served with a rich, warming character.", ar: "طبق جنوبي من القمح يُطهى بهدوء ويُقدَّم بطابع غني ودافئ." },
+        image: { src: "assets/foods/mabthouth.svg", width: 800, height: 500, alt: { en: "Original illustration placeholder of Mabthouth", ar: "رسم توضيحي بديل للمبثوث" } }
       },
       {
-        id: "haneeth",
-        title: { en: "Haneeth", ar: "Haneeth" },
-        description: { en: "Slow-cooked meat known for its tender texture and deep, aromatic flavour.", ar: "لحم يُطهى ببطء ويشتهر بقوامه الطري ونكهته العطرية الغنية." },
-        image: { src: "assets/foods/haneeth.svg", width: 800, height: 500, alt: { en: "Original illustration of a serving of slow-cooked Haneeth", ar: "رسم أصلي لطبق حنيذ مطهو ببطء" } }
+        id: "tasabee",
+        title: "Tasabee",
+        description: { en: "A familiar southern dish with a soft texture and comforting, home-style flavour.", ar: "طبق جنوبي مألوف بقوام طري ونكهة منزلية دافئة." },
+        image: { src: "assets/foods/tasabee.svg", width: 800, height: 500, alt: { en: "Original illustration placeholder of Tasabee", ar: "رسم توضيحي بديل للتصابيع" } }
       },
       {
-        id: "mandi",
-        title: { en: "Mandi", ar: "Mandi" },
-        description: { en: "Fragrant rice with gently cooked meat, prepared for a generous shared meal.", ar: "أرز عطري مع لحم مطهو بهدوء، يُقدَّم كوجبة كريمة للمشاركة." },
-        image: { src: "assets/foods/mandi.svg", width: 800, height: 500, alt: { en: "Original illustration of Mandi rice and meat", ar: "رسم أصلي لأرز مندي مع اللحم" } }
+        id: "mashghouthah",
+        title: "Mashghouthah",
+        description: { en: "A hearty southern dish, enjoyed for its generous serving and warming flavours.", ar: "طبق جنوبي مشبع يُستمتع به لحصته السخية ونكهاته الدافئة." },
+        image: { src: "assets/foods/mashghouthah.svg", width: 800, height: 500, alt: { en: "Original illustration placeholder of Mashghouthah", ar: "رسم توضيحي بديل للمشغوثة" } }
       },
       {
-        id: "maghsh",
-        title: { en: "Maghsh", ar: "Maghsh" },
-        description: { en: "A colourful stone-pot dish that brings vegetables and warming spices to the table.", ar: "طبق ملون يُقدَّم في وعاء حجري ويجمع الخضار والتوابل الدافئة على المائدة." },
-        image: { src: "assets/foods/maghsh.svg", width: 800, height: 500, alt: { en: "Original illustration of Maghsh in a stone pot", ar: "رسم أصلي للمغش في وعاء حجري" } }
-      },
-      {
-        id: "mifa-bread",
-        title: { en: "Mifa Bread", ar: "Mifa Bread" },
-        description: { en: "Freshly baked bread with a gentle smoky character, made to accompany a shared meal.", ar: "خبز طازج بنكهة مدخنة خفيفة، يُعد لمرافقة وجبة مشتركة." },
-        image: { src: "assets/foods/mifa-bread.svg", width: 800, height: 500, alt: { en: "Original illustration of freshly baked Mifa Bread", ar: "رسم أصلي لخبز الميفا الطازج" } }
+        id: "tannour-bread",
+        title: "Tannour Bread",
+        description: { en: "Fresh bread baked in a tannour oven, made to accompany a shared southern meal.", ar: "خبز طازج يُخبز في التنور ويُقدَّم لمرافقة وجبة جنوبية مشتركة." },
+        image: { src: "assets/foods/tannour-bread.svg", width: 800, height: 500, alt: { en: "Original illustration placeholder of Tannour Bread", ar: "رسم توضيحي بديل لخبز التنور" } }
       }
     ]
   },

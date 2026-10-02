@@ -5,7 +5,7 @@ A bilingual, one-screen visitor guide for planning a gentle day across **Abha** 
 ## What it does
 
 - Browse Natural Attractions, Cultural & Arts, Cafes, and Restaurants through quick section shortcuts.
-- Discover a separate Southern Food Gallery after Restaurants, with six informational cards and replaceable local image slots.
+- Discover a separate Southern Food Gallery after Restaurants, with five informational cards and replaceable local image slots.
 - Discover Art Street as an illustrated cultural stop, while its name remains **Art Street** in both English and Arabic modes.
 - Save favorite places in a dedicated Favorites section and build an ordered trip plan.
 - Move stops up or down, remove them, clear the plan, or restore a built-in example plan.
@@ -51,7 +51,7 @@ All checked-in visuals in `assets/` are local project media: original SVG placeh
 
 To replace an illustration, add an appropriately licensed file inside `assets/`, then update the matching `src`, `width`, `height`, and English/Arabic `alt` fields in `sample-data/data.js`. Keep paths relative and local.
 
-Southern Food image slots live in `assets/foods/`. To replace a dish illustration with a licensed local food photo, add the photo there, then update the matching item in `southernFood.items` in `sample-data/data.js` with its relative `src`, dimensions, and English/Arabic `alt` text. To add another dish later, append a complete item using the same shape; the gallery remains informational and separate from destinations.
+Southern Food image slots live in `assets/foods/`. The gallery currently contains five local placeholder illustrations because no matching food photos are in the project yet. To replace a dish illustration with a licensed local food photo, add the photo there, then update the matching item in `southernFood.items` in `sample-data/data.js` with its relative `src`, dimensions, and English/Arabic `alt` text. Keep the item ID and its English-only title stable; the gallery remains informational and separate from destinations.
 
 The local Discover Abha video remains below 10 MB and loads only after the visitor selects **Play preview**. To replace it, put a licensed MP4 below 10 MB in `assets/` and update `localMp4Src` in `sample-data/data.js`. Matching caption files can be configured later if available.
 

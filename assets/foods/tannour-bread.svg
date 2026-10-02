@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Original illustration placeholder for Tannour Bread">
+  <rect width="800" height="500" fill="#e7d5b3"/>
+  <path d="M0 353c130-38 264-44 400-8 137-36 269-30 400 8v147H0Z" fill="#587b7f"/>
+  <ellipse cx="400" cy="305" rx="237" ry="92" fill="#855135"/>
+  <ellipse cx="400" cy="287" rx="214" ry="75" fill="#d68a43"/>
+  <path d="M285 292c19-84 75-126 115-92 40-34 97 8 115 92-32 35-81 54-115 54s-83-19-115-54Z" fill="#f1cb74"/>
+  <path d="M319 259c22 15 44 15 66 0m29 0c22 15 44 15 66 0m-141 41c20 13 42 13 62 0m38 0c20 13 42 13 62 0" fill="none" stroke="#bf7036" stroke-width="11" stroke-linecap="round"/>
+  <path d="m222 254-42 46m398-46 42 46" stroke="#f7e9c5" stroke-width="13" stroke-linecap="round"/>
+</svg>

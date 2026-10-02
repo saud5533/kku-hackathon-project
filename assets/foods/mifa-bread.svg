@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Original illustration placeholder for Mifa Bread">
-  <rect width="800" height="500" fill="#e4d2af"/>
-  <path d="M0 353c132-40 264-45 400-9 136-36 270-31 400 9v147H0Z" fill="#315c45"/>
-  <ellipse cx="400" cy="304" rx="236" ry="93" fill="#8b5533"/>
-  <ellipse cx="400" cy="287" rx="214" ry="75" fill="#d59145"/>
-  <path d="M271 291c24-76 84-117 129-85 44-32 105 9 129 85-48 42-210 42-258 0Z" fill="#f3d27d"/>
-  <path d="M303 263c26 19 50 19 74 0m45 0c25 19 49 19 75 0m-169 35c22 15 46 15 68 0m28 0c22 15 46 15 68 0" fill="none" stroke="#c27636" stroke-width="12" stroke-linecap="round"/>
-  <path d="M204 236c-24 15-42 37-52 65m444-65c24 15 42 37 52 65" fill="none" stroke="#f7e9c5" stroke-width="13" stroke-linecap="round"/>
-</svg>
