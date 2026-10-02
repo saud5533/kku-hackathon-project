@@ -177,10 +177,19 @@
     const title = getDisplayTitle(destination);
     const visitorTip = destination.visitorTip?.[state.language];
     const tags = destination.tags[state.language].map((tag) => `<span>${safeText(tag)}</span>`).join("");
+    const video = destination.video;
+    const hasVideo = video?.provider === "mp4" && localPath(video.localMp4Src);
+    const media = hasVideo ? `
+          <video class="place-video" controls playsinline preload="metadata" poster="${safeText(destination.image.src)}" aria-label="${safeText(video.label?.[state.language])}" width="${video.videoWidth}" height="${video.videoHeight}">
+            <source src="${safeText(video.localMp4Src)}" type="video/mp4">${video.captions?.[state.language] && localPath(video.captions[state.language]) ? `<track kind="captions" src="${safeText(video.captions[state.language])}" srclang="${state.language}" label="${state.language}" default>` : ""}
+          </video>
+          <img class="place-image place-video-fallback" src="${safeText(destination.image.src)}" alt="${safeText(destination.image.alt[state.language])}" width="${destination.image.width}" height="${destination.image.height}" loading="lazy" decoding="async">
+          <p class="place-video-error" hidden>${safeText(video.unavailable?.[state.language])}</p>` : `
+          <img class="place-image" src="${safeText(destination.image.src)}" alt="${safeText(destination.image.alt[state.language])}" width="${destination.image.width}" height="${destination.image.height}" loading="lazy" decoding="async">`;
     return `
       <article class="place-card">
-        <div class="place-scene scene-${destination.gradient} media-fallback">
-          <img class="place-image" src="${safeText(destination.image.src)}" alt="${safeText(destination.image.alt[state.language])}" width="${destination.image.width}" height="${destination.image.height}" loading="lazy" decoding="async">
+        <div class="place-scene scene-${destination.gradient} media-fallback ${hasVideo ? "has-video" : ""}"${hasVideo ? ` style="--place-video-aspect-ratio: ${video.videoWidth} / ${video.videoHeight}"` : ""}>
+          ${media}
           <div class="media-art-fallback" aria-hidden="true"></div>
         </div>
         <div class="place-card-body">
@@ -204,8 +213,18 @@
     `;
   }
 
-  function bindCardImageFallbacks(scope) {
+  function bindCardMediaFallbacks(scope) {
     scope.querySelectorAll(".place-image").forEach((image) => image.addEventListener("error", showImageFallback, { once: true }));
+    scope.querySelectorAll(".place-scene.has-video").forEach((scene) => {
+      const player = scene.querySelector(".place-video");
+      const fallback = scene.querySelector(".place-video-fallback");
+      const error = scene.querySelector(".place-video-error");
+      if (!player || !fallback || !error) return;
+      player.addEventListener("error", () => {
+        scene.classList.add("has-video-error");
+        error.hidden = false;
+      }, { once: true });
+    });
   }
 
   function renderNaturalVideoCard(video) {
@@ -247,7 +266,7 @@
       const grid = elements.areaGrids[area.id];
       const places = data.destinations.filter((destination) => destination.area === area.id);
       grid.innerHTML = places.map((destination) => `${renderDestinationCard(destination)}${naturalVideo?.areaId === area.id && naturalVideo.afterDestinationId === destination.id ? renderNaturalVideoCard(naturalVideo) : ""}`).join("");
-      bindCardImageFallbacks(grid);
+      bindCardMediaFallbacks(grid);
       bindNaturalVideoFallbacks(grid);
     });
   }
@@ -286,7 +305,7 @@
     }
 
     elements.favoritesGrid.innerHTML = savedDestinations.map(renderDestinationCard).join("");
-    bindCardImageFallbacks(elements.favoritesGrid);
+    bindCardMediaFallbacks(elements.favoritesGrid);
   }
 
   function renderPlanner() {

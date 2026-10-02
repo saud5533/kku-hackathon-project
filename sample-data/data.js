@@ -75,17 +75,20 @@ window.ABHA_VISITOR_GUIDE_DATA = {
     {
       id: "heritage-courtyard", area: "culture", location: { en: "Abha", ar: "أبها" }, title: { en: "Heritage Courtyard", ar: "فناء التراث" },
       description: { en: "A small story-filled courtyard imagined for browsing craft details and local patterns.", ar: "فناء صغير مليء بالقصص لتأمل تفاصيل الحرف والنقوش المحلية." }, tags: { en: ["Craft detail", "Slow browse"], ar: ["حرف يدوية", "تجول هادئ"] }, duration: 60, mapQuery: "Heritage Courtyard, Abha, Saudi Arabia", gradient: "clay",
-      image: { src: "assets/destinations/heritage-courtyard.svg", width: 800, height: 500, alt: { en: "Original illustration of a patterned highland heritage courtyard", ar: "رسم أصلي لفناء تراثي في المرتفعات مزين بالنقوش" } }
+      image: { src: "assets/destinations/heritage-courtyard.svg", width: 800, height: 500, alt: { en: "Original illustration of a patterned highland heritage courtyard", ar: "رسم أصلي لفناء تراثي في المرتفعات مزين بالنقوش" } },
+      video: { provider: "mp4", localMp4Src: "assets/destinations/heritage-courtyard.mp4", videoWidth: 480, videoHeight: 848, captions: { en: "", ar: "" }, label: { en: "Heritage Courtyard video", ar: "فيديو فناء التراث" }, unavailable: { en: "The local Heritage Courtyard video could not be played. The illustration remains available.", ar: "تعذر تشغيل فيديو فناء التراث المحلي. يبقى الرسم التوضيحي متاحًا." } }
     },
     {
       id: "highland-studio", area: "culture", location: { en: "Abha", ar: "أبها" }, title: { en: "Highland Studio", ar: "استوديو المرتفعات" },
       description: { en: "A fictional creative room for seeing colour, pattern, and highland-inspired stories together.", ar: "مساحة إبداعية خيالية تجتمع فيها الألوان والنقوش وحكايات المرتفعات." }, tags: { en: ["Design", "Indoors"], ar: ["تصميم", "في الداخل"] }, duration: 45, mapQuery: "Highland Studio, Abha, Saudi Arabia", gradient: "rose",
-      image: { src: "assets/destinations/highland-studio.svg", width: 800, height: 500, alt: { en: "Original illustration of a colourful highland art studio", ar: "رسم أصلي لاستوديو فني ملون في المرتفعات" } }
+      image: { src: "assets/destinations/highland-studio.svg", width: 800, height: 500, alt: { en: "Original illustration of a colourful highland art studio", ar: "رسم أصلي لاستوديو فني ملون في المرتفعات" } },
+      video: { provider: "mp4", localMp4Src: "assets/destinations/highland-studio.mp4", videoWidth: 480, videoHeight: 848, captions: { en: "", ar: "" }, label: { en: "Highland Studio video", ar: "فيديو استوديو المرتفعات" }, unavailable: { en: "The local Highland Studio video could not be played. The illustration remains available.", ar: "تعذر تشغيل فيديو استوديو المرتفعات المحلي. يبقى الرسم التوضيحي متاحًا." } }
     },
     {
       id: "art-street", area: "culture", location: { en: "Abha", ar: "أبها" }, title: { en: "Art Street", ar: "Art Street" },
       description: { en: "A colourful cultural walk for noticing outdoor artworks, local patterns, and a creative side of the city.", ar: "جولة ثقافية ملونة لتأمل الأعمال الفنية في الهواء الطلق والنقوش المحلية والجانب الإبداعي من المدينة." }, visitorTip: { en: "Wear comfortable walking shoes and use Maps to check current activities before you go.", ar: "ارتدِ حذاءً مريحًا للمشي واستخدم الخرائط للتحقق من الفعاليات الحالية قبل الزيارة." }, tags: { en: ["Outdoor art", "Cultural walk"], ar: ["فن في الهواء الطلق", "جولة ثقافية"] }, duration: 60, mapQuery: "Art Street Abha Saudi Arabia", gradient: "rose",
-      image: { src: "assets/destinations/art-street.svg", width: 800, height: 500, alt: { en: "Original illustration of a colourful outdoor art promenade in Abha", ar: "رسم أصلي لممشى فني خارجي ملون في أبها" } }
+      image: { src: "assets/destinations/art-street.svg", width: 800, height: 500, alt: { en: "Original illustration of a colourful outdoor art promenade in Abha", ar: "رسم أصلي لممشى فني خارجي ملون في أبها" } },
+      video: { provider: "mp4", localMp4Src: "assets/destinations/art-street.mp4", videoWidth: 848, videoHeight: 480, captions: { en: "", ar: "" }, label: { en: "Art Street video", ar: "فيديو شارع الفن" }, unavailable: { en: "The local Art Street video could not be played. The illustration remains available.", ar: "تعذر تشغيل فيديو شارع الفن المحلي. يبقى الرسم التوضيحي متاحًا." } }
     },
     {
       id: "hayz-coffee", area: "cafes", location: { en: "Abha", ar: "أبها" }, title: { en: "Hayz Coffee", ar: "كوفي حيز" },

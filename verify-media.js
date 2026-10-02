@@ -65,6 +65,27 @@ data.areas.forEach((area) => {
   if (!data.destinations.some((destination) => destination.area === area.id)) fail(`${area.id} area has no destinations.`);
 });
 
+const expectedDestinationVideos = {
+  "art-street": [848, 480],
+  "highland-studio": [480, 848],
+  "heritage-courtyard": [480, 848]
+};
+const destinationVideos = data.destinations.filter((destination) => destination.video);
+if (destinationVideos.length !== Object.keys(expectedDestinationVideos).length) fail("Guide needs exactly three approved Cultural & Arts card videos.");
+destinationVideos.forEach((destination) => {
+  const expectedDimensions = expectedDestinationVideos[destination.id];
+  const video = destination.video;
+  if (!expectedDimensions || destination.area !== "culture" || video.provider !== "mp4") fail(`${destination.id} has an unapproved card video.`);
+  file(video.localMp4Src, `${destination.id} card video`);
+  if (fs.statSync(video.localMp4Src).size > 10 * 1024 * 1024) fail(`${destination.id} card video must stay below 10 MB.`);
+  if (video.videoWidth !== expectedDimensions[0] || video.videoHeight !== expectedDimensions[1]) fail(`${destination.id} card video has unexpected dimensions.`);
+  if (!bilingual(video.label) || !bilingual(video.unavailable)) fail(`${destination.id} card video needs bilingual accessibility content.`);
+  ["en", "ar"].forEach((language) => {
+    const caption = video.captions?.[language];
+    if (caption) file(caption, `${destination.id} ${language} captions`);
+  });
+});
+
 const foodItems = data.southernFood?.items;
 const expectedFoodIds = ["areekah", "mabthouth", "tasabee", "mashghouthah", "tannour-bread"];
 if (!Array.isArray(foodItems) || foodItems.length !== expectedFoodIds.length) fail("Southern Food gallery must contain five food cards.");
@@ -88,4 +109,4 @@ if (!artStreet) fail("Art Street destination is missing.");
 if (artStreet.title?.en !== "Art Street" || artStreet.title?.ar !== "Art Street") fail("Art Street must use the English name in both language fields.");
 if (!bilingual(artStreet.description) || !bilingual(artStreet.visitorTip) || !bilingual(artStreet.tags)) fail("Art Street needs bilingual visitor content.");
 
-console.log(`Media and area contract passed for ${data.destinations.length} destination images, ${foodItems.length} Southern Food slots, and both local videos.`);
+console.log(`Media and area contract passed for ${data.destinations.length} destination images, ${destinationVideos.length} Cultural & Arts card videos, ${foodItems.length} Southern Food slots, and both local videos.`);

@@ -57,7 +57,9 @@ The local Discover Abha video is the supplied MP4 at `assets/abha-discover-video
 
 The separate Southern Mountains nature video appears directly below Asir in Natural Attractions. Its local MP4, poster, bilingual text, dimensions, and placement are stored in `media.naturalVideo` in `sample-data/data.js`. Keep replacement files local and below 10 MB, then update that metadata so its original aspect ratio and offline fallback remain correct.
 
-Run `node verify-media.js` to validate the local image paths, bilingual alt text, dimensions, Southern Food slots, and both offline video configurations.
+Art Street, Highland Studio, and Heritage Courtyard use local native video players in their card media areas. Their existing SVG illustrations stay as their posters and offline fallbacks; portrait videos intentionally keep their full source ratio. To replace one, add a licensed MP4 below 10 MB to `assets/destinations/` and update that destination’s `video` metadata in `sample-data/data.js`.
+
+Run `node verify-media.js` to validate the local image paths, bilingual alt text, dimensions, Cultural & Arts card videos, Southern Food slots, and both offline video configurations.
 
 ## Project notes
 
