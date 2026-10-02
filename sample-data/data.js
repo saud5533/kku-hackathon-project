@@ -21,7 +21,7 @@ window.ABHA_VISITOR_GUIDE_DATA = {
     naturalVideo: {
       provider: "mp4",
       areaId: "natural",
-      afterDestinationId: "terrace-trail",
+      afterDestinationId: "asir-overlook",
       posterSrc: "assets/southern-mountains-poster.svg",
       posterWidth: 480,
       posterHeight: 848,
@@ -71,11 +71,6 @@ window.ABHA_VISITOR_GUIDE_DATA = {
       id: "asir-overlook", area: "natural", location: { en: "Asir", ar: "عسير" }, title: { en: "Asir", ar: "Asir" },
       description: { en: "A mountain-region stop for wide ridges, cool air, and time to take in the changing highland views.", ar: "محطة جبلية للاستمتاع بالسلاسل الواسعة والهواء العليل وتغيّر إطلالات المرتفعات." }, visitorTip: { en: "Check local road and weather conditions before setting out, especially when mist settles over the mountains.", ar: "تحقق من حالة الطرق والطقس محليًا قبل الانطلاق، خصوصًا عند انتشار الضباب فوق الجبال." }, tags: { en: ["Mountain views", "Highland air"], ar: ["إطلالات جبلية", "هواء المرتفعات"] }, duration: 90, mapQuery: "Asir Mountains, Saudi Arabia", gradient: "lavender",
       image: { src: "assets/destinations/asir-overlook.svg", width: 800, height: 500, alt: { en: "Original illustration of misty mountain ridges in the Asir region", ar: "رسم أصلي لسلاسل جبلية ضبابية في منطقة عسير" } }
-    },
-    {
-      id: "terrace-trail", area: "natural", location: { en: "Al Namas", ar: "النماص" }, title: { en: "Terrace Trail", ar: "مسار المدرجات" },
-      description: { en: "A made-up trail through green terrace shapes, best enjoyed with calm shoes and a little time.", ar: "مسار خيالي بين مدرجات خضراء، يستحق حذاءً مريحًا وبعض الوقت الهادئ." }, tags: { en: ["Fresh air", "Walking shoes"], ar: ["هواء نقي", "حذاء للمشي"] }, duration: 105, mapQuery: "Terrace Trail, Al Namas, Saudi Arabia", gradient: "mist",
-      image: { src: "assets/destinations/terrace-trail.svg", width: 800, height: 500, alt: { en: "Original illustration of green terrace fields and a walking trail in Al Namas", ar: "رسم أصلي لمدرجات خضراء ومسار للمشي في النماص" } }
     },
     {
       id: "heritage-courtyard", area: "culture", location: { en: "Abha", ar: "أبها" }, title: { en: "Heritage Courtyard", ar: "فناء التراث" },
@@ -157,7 +152,7 @@ window.ABHA_VISITOR_GUIDE_DATA = {
       }
     ]
   },
-  examplePlan: ["terrace-trail", "juniper-table", "asir-overlook"],
+  examplePlan: ["asir-overlook", "heritage-courtyard", "juniper-table"],
   localTips: {
     en: ["Check current local conditions before leaving for viewpoints.", "Allow a little extra driving time when mist settles over the highlands.", "Use Maps to confirm a destination before you leave, and keep water and a light layer with you."],
     ar: ["تحقق من الأحوال المحلية الحالية قبل التوجه إلى الإطلالات.", "اترك وقتًا إضافيًا قليلًا للقيادة عندما يستقر الضباب فوق المرتفعات.", "استخدم الخرائط لتأكيد وجهتك قبل المغادرة، واحتفظ بالماء وطبقة خفيفة معك."]

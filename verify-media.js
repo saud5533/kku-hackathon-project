@@ -31,7 +31,7 @@ file(naturalVideo.posterSrc, "Natural Attractions poster");
 if (!bilingual(naturalVideo.posterAlt) || !naturalVideo.posterWidth || !naturalVideo.posterHeight) fail("Natural Attractions poster needs bilingual alt text and dimensions.");
 if (!Number.isFinite(naturalVideo.videoWidth) || !Number.isFinite(naturalVideo.videoHeight) || naturalVideo.videoWidth <= 0 || naturalVideo.videoHeight <= 0) fail("Natural Attractions video needs positive dimensions.");
 if (fs.statSync(naturalVideo.localMp4Src).size > 10 * 1024 * 1024) fail("Natural Attractions local video must stay below 10 MB.");
-if (naturalVideo.areaId !== "natural" || naturalVideo.afterDestinationId !== "terrace-trail") fail("Natural Attractions video needs the approved placement metadata.");
+if (naturalVideo.areaId !== "natural" || naturalVideo.afterDestinationId !== "asir-overlook") fail("Natural Attractions video needs the approved placement metadata.");
 ["en", "ar"].forEach((language) => {
   const content = naturalVideo.content?.[language];
   if (!content?.eyebrow || !content.title || !content.description || !content.videoLabel || !content.unavailable) {
